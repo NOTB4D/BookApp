@@ -26,6 +26,7 @@
 		B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */; };
 		B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB542B9F351D00EEEA9F /* Book.swift */; };
 		B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */; };
+		B8A9C4222B9F8C090099A2A8 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = B8A9C4212B9F8C090099A2A8 /* Extensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B87BAB542B9F351D00EEEA9F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestStubs.swift; sourceTree = "<group>"; };
+		B8A9C4202B9F8B8D0099A2A8 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A9C4222B9F8C090099A2A8 /* Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +103,14 @@
 		B87BAB012B9F2DE200EEEA9F = {
 			isa = PBXGroup;
 			children = (
+				B8A9C4072B9F81C00099A2A8 /* Packages */,
 				B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */,
 				B87BAB3D2B9F2ED500EEEA9F /* Networking */,
 				B87BAB0C2B9F2DE200EEEA9F /* BookApp */,
-				B87BAB232B9F2DE300EEEA9F /* BookAppTests */,
-				B87BAB2D2B9F2DE300EEEA9F /* BookAppUITests */,
 				B87BAB0B2B9F2DE200EEEA9F /* Products */,
+				B87BAB2D2B9F2DE300EEEA9F /* BookAppUITests */,
+				B87BAB232B9F2DE300EEEA9F /* BookAppTests */,
+				B8A9C4102B9F86BE0099A2A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +212,21 @@
 			path = TestStubs;
 			sourceTree = "<group>";
 		};
+		B8A9C4072B9F81C00099A2A8 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				B8A9C4202B9F8B8D0099A2A8 /* Extensions */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		B8A9C4102B9F86BE0099A2A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,6 +243,9 @@
 			dependencies = (
 			);
 			name = BookApp;
+			packageProductDependencies = (
+				B8A9C4212B9F8C090099A2A8 /* Extensions */,
+			);
 			productName = BookApp;
 			productReference = B87BAB0A2B9F2DE200EEEA9F /* BookApp.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +318,8 @@
 				Base,
 			);
 			mainGroup = B87BAB012B9F2DE200EEEA9F;
+			packageReferences = (
+			);
 			productRefGroup = B87BAB0B2B9F2DE200EEEA9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +369,7 @@
 				B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */,
 				B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */,
 				B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */,
+				B87BAB3F2B9F301E00EEEA9F /* Networkable.swift in Sources */,
 				B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
 				B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */,
@@ -701,6 +727,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8A9C4212B9F8C090099A2A8 /* Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Extensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B87BAB022B9F2DE200EEEA9F /* Project object */;
 }
