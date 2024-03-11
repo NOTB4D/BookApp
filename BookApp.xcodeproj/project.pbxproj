@@ -16,6 +16,16 @@
 		B87BAB252B9F2DE300EEEA9F /* BookAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB242B9F2DE300EEEA9F /* BookAppTests.swift */; };
 		B87BAB2F2B9F2DE300EEEA9F /* BookAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB2E2B9F2DE300EEEA9F /* BookAppUITests.swift */; };
 		B87BAB312B9F2DE300EEEA9F /* BookAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB302B9F2DE300EEEA9F /* BookAppUITestsLaunchTests.swift */; };
+		B87BAB3F2B9F301E00EEEA9F /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB3E2B9F301E00EEEA9F /* Networkable.swift */; };
+		B87BAB422B9F327B00EEEA9F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB412B9F327B00EEEA9F /* Response.swift */; };
+		B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB432B9F329300EEEA9F /* NetworkContentType.swift */; };
+		B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB462B9F32BE00EEEA9F /* NSError.swift */; };
+		B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB492B9F32F600EEEA9F /* API.swift */; };
+		B87BAB4C2B9F331B00EEEA9F /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB4B2B9F331B00EEEA9F /* Bundle+Extension.swift */; };
+		B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */; };
+		B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */; };
+		B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB542B9F351D00EEEA9F /* Book.swift */; };
+		B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,17 @@
 		B87BAB2A2B9F2DE300EEEA9F /* BookAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87BAB2E2B9F2DE300EEEA9F /* BookAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppUITests.swift; sourceTree = "<group>"; };
 		B87BAB302B9F2DE300EEEA9F /* BookAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B87BAB3E2B9F301E00EEEA9F /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		B87BAB412B9F327B00EEEA9F /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		B87BAB432B9F329300EEEA9F /* NetworkContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContentType.swift; sourceTree = "<group>"; };
+		B87BAB462B9F32BE00EEEA9F /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		B87BAB492B9F32F600EEEA9F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		B87BAB4B2B9F331B00EEEA9F /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		B87BAB542B9F351D00EEEA9F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestStubs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +100,8 @@
 		B87BAB012B9F2DE200EEEA9F = {
 			isa = PBXGroup;
 			children = (
+				B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */,
+				B87BAB3D2B9F2ED500EEEA9F /* Networking */,
 				B87BAB0C2B9F2DE200EEEA9F /* BookApp */,
 				B87BAB232B9F2DE300EEEA9F /* BookAppTests */,
 				B87BAB2D2B9F2DE300EEEA9F /* BookAppUITests */,
@@ -125,6 +148,63 @@
 				B87BAB302B9F2DE300EEEA9F /* BookAppUITestsLaunchTests.swift */,
 			);
 			path = BookAppUITests;
+			sourceTree = "<group>";
+		};
+		B87BAB3D2B9F2ED500EEEA9F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB452B9F32AA00EEEA9F /* Extension */,
+				B87BAB402B9F326D00EEEA9F /* Base */,
+				B87BAB482B9F32DD00EEEA9F /* Networkable */,
+				B87BAB592B9F751000EEEA9F /* TestStubs */,
+				B87BAB3E2B9F301E00EEEA9F /* Networkable.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B87BAB402B9F326D00EEEA9F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB412B9F327B00EEEA9F /* Response.swift */,
+				B87BAB432B9F329300EEEA9F /* NetworkContentType.swift */,
+				B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B87BAB452B9F32AA00EEEA9F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB462B9F32BE00EEEA9F /* NSError.swift */,
+				B87BAB4B2B9F331B00EEEA9F /* Bundle+Extension.swift */,
+				B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B87BAB482B9F32DD00EEEA9F /* Networkable */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB492B9F32F600EEEA9F /* API.swift */,
+				B87BAB542B9F351D00EEEA9F /* Book.swift */,
+			);
+			path = Networkable;
+			sourceTree = "<group>";
+		};
+		B87BAB562B9F38D700EEEA9F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB572B9F38F900EEEA9F /* Books.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		B87BAB592B9F751000EEEA9F /* TestStubs */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */,
+			);
+			path = TestStubs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +339,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B87BAB122B9F2DE200EEEA9F /* ViewController.swift in Sources */,
+				B87BAB4C2B9F331B00EEEA9F /* Bundle+Extension.swift in Sources */,
 				B87BAB0E2B9F2DE200EEEA9F /* AppDelegate.swift in Sources */,
+				B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */,
+				B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */,
+				B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */,
+				B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
+				B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */,
+				B87BAB582B9F38F900EEEA9F /* Books.swift in Sources */,
+				B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */,
+				B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */,
+				B87BAB422B9F327B00EEEA9F /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +408,7 @@
 /* Begin XCBuildConfiguration section */
 		B87BAB322B9F2DE300EEEA9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -381,6 +472,7 @@
 		};
 		B87BAB332B9F2DE300EEEA9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
