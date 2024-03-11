@@ -21,6 +21,7 @@
 		B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB462B9F32BE00EEEA9F /* NSError.swift */; };
 		B87BAB4C2B9F331B00EEEA9F /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB4B2B9F331B00EEEA9F /* Bundle+Extension.swift */; };
 		B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */; };
+		B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B87BAB462B9F32BE00EEEA9F /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		B87BAB4B2B9F331B00EEEA9F /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				B87BAB462B9F32BE00EEEA9F /* NSError.swift */,
 				B87BAB4B2B9F331B00EEEA9F /* Bundle+Extension.swift */,
+				B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				B87BAB4C2B9F331B00EEEA9F /* Bundle+Extension.swift in Sources */,
 				B87BAB0E2B9F2DE200EEEA9F /* AppDelegate.swift in Sources */,
 				B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */,
+				B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */,
 				B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
 				B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */,
