@@ -25,6 +25,7 @@
 		B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */; };
 		B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */; };
 		B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB542B9F351D00EEEA9F /* Book.swift */; };
+		B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B87BAB542B9F351D00EEEA9F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestStubs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				B87BAB452B9F32AA00EEEA9F /* Extension */,
 				B87BAB402B9F326D00EEEA9F /* Base */,
 				B87BAB482B9F32DD00EEEA9F /* Networkable */,
+				B87BAB592B9F751000EEEA9F /* TestStubs */,
 				B87BAB3E2B9F301E00EEEA9F /* Networkable.swift */,
 			);
 			path = Networking;
@@ -194,6 +197,14 @@
 				B87BAB572B9F38F900EEEA9F /* Books.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		B87BAB592B9F751000EEEA9F /* TestStubs */ = {
+			isa = PBXGroup;
+			children = (
+				B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */,
+			);
+			path = TestStubs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +344,7 @@
 				B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */,
 				B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */,
 				B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */,
+				B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
 				B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */,
 				B87BAB582B9F38F900EEEA9F /* Books.swift in Sources */,
