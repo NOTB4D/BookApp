@@ -79,6 +79,7 @@
 		B87BAB012B9F2DE200EEEA9F = {
 			isa = PBXGroup;
 			children = (
+				B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */,
 				B87BAB0C2B9F2DE200EEEA9F /* BookApp */,
 				B87BAB232B9F2DE300EEEA9F /* BookAppTests */,
 				B87BAB2D2B9F2DE300EEEA9F /* BookAppUITests */,
@@ -318,6 +319,7 @@
 /* Begin XCBuildConfiguration section */
 		B87BAB322B9F2DE300EEEA9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -381,6 +383,7 @@
 		};
 		B87BAB332B9F2DE300EEEA9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
