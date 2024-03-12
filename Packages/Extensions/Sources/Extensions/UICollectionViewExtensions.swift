@@ -8,7 +8,6 @@
 import UIKit
 
 public extension UICollectionView {
-
     /// Registers a nib file for use in creating new collection view cells.
     /// Cell nib file name and identifier name should as same as the cell.
     /// - Parameters:

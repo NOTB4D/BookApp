@@ -1,6 +1,6 @@
 //
 //  UIApplicationExtension.swift
-//  
+//
 //
 //  Created by Eser Kucuker on 11.03.2024.
 //
@@ -28,8 +28,9 @@ public extension UIApplication {
         let storyboardName = named ?? substringStoryboardName(withViewControllerName: controllerName)
         if isInitialViewController,
            let viewController = UIStoryboard(
-            name: String(storyboardName), bundle: nil
-           ).instantiateInitialViewController() as? T {
+               name: String(storyboardName), bundle: nil
+           ).instantiateInitialViewController() as? T
+        {
             return viewController
         } else if let viewController = UIStoryboard(
             name: String(storyboardName), bundle: nil

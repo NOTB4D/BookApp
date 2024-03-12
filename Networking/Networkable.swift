@@ -39,12 +39,11 @@ extension Networkable {
     }
 }
 
-
 public extension Networkable {
     func fetch<T: Decodable>(
         responseModel model: T.Type
     ) async -> Result<T, Error> {
-      //  guard !UnitTestStubs.canResponse(type, completion: completion) else { return }
+        //  guard !UnitTestStubs.canResponse(type, completion: completion) else { return }
 
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             let result = await UnitTestStubs.canResponse(model)
@@ -55,7 +54,8 @@ public extension Networkable {
             let (data, response) = try await URLSession.shared.data(for: request(), delegate: nil)
 
             if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
-               let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+               let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            {
                 print("\n\n\n---Networking Received Response---")
                 print(String(decoding: jsonData, as: UTF8.self))
                 print("---Networking Received Response---\n\n\n")

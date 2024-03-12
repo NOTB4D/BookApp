@@ -15,9 +15,8 @@ enum NetworkContentType {
 
     var rawValue: String {
         switch self {
-        case .json: return "application/json"
-        case let .multipartFormData(boundary): return "multipart/form-data; boundary=\(boundary)"
+        case .json: "application/json"
+        case let .multipartFormData(boundary): "multipart/form-data; boundary=\(boundary)"
         }
     }
 }
-

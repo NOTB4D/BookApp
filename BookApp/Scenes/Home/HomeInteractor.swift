@@ -11,12 +11,9 @@ protocol HomeBusinessLogic: AnyObject {
     func doSomething()
 }
 
-protocol HomeDataStore: AnyObject {
-    
-}
+protocol HomeDataStore: AnyObject {}
 
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
-    
     var presenter: HomePresentationLogic?
     var worker: HomeWorkingLogic = HomeWorker()
 

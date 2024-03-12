@@ -7,17 +7,13 @@
 
 import Foundation
 
-protocol HomeRoutingLogic: AnyObject {
-    
-}
+protocol HomeRoutingLogic: AnyObject {}
 
 protocol HomeDataPassing: AnyObject {
     var dataStore: HomeDataStore? { get }
 }
 
 final class HomeRouter: HomeRoutingLogic, HomeDataPassing {
-    
     weak var viewController: HomeViewController?
     var dataStore: HomeDataStore?
-    
 }

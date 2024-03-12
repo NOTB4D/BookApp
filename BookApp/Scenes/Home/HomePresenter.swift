@@ -13,7 +13,6 @@ protocol HomePresentationLogic: AnyObject {
 }
 
 final class HomePresenter: HomePresentationLogic {
-    
     weak var viewController: HomeDisplayLogic?
 
     func presentBooks(response: Home.FetchBooks.Response) {

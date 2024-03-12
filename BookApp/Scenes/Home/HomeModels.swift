@@ -10,13 +10,9 @@ import UIKit
 
 // swiftlint:disable nesting
 enum Home {
-    
     enum FetchBooks {
+        struct Request {}
 
-        struct Request {
-            
-        }
-        
         struct Response {
             let books: [Book]
 
@@ -33,10 +29,8 @@ enum Home {
                 let artistName: String?
                 let image: String?
             }
-
         }
-        
     }
-    
 }
+
 // swiftlint:enable nesting

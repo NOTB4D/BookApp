@@ -14,7 +14,7 @@ public extension API {
         public func request() async -> URLRequest {
             switch self {
             case let .getBooks(request):
-                return await get(path: "/api/v2/us/books/top-free/\(request.page)/books.json")
+                await get(path: "/api/v2/us/books/top-free/\(request.page)/books.json")
             }
         }
     }

@@ -23,4 +23,3 @@ public extension Bundle {
         infoForKey(key) == "YES"
     }
 }
-

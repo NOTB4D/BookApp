@@ -15,6 +15,4 @@ final class HomeWorker: HomeWorkingLogic {
     func fetchBooks(request: GetBooksRequest) async -> Result<BooksResponse, Error> {
         await API.Book.getBooks(request: request).fetch(responseModel: BooksResponse.self)
     }
-    
-    
 }

@@ -22,15 +22,14 @@ class MainTabBarViewController: UITabBarController {
     func routeTo(_ mainTabs: MainTabs) {
         selectedIndex = mainTabs.rawValue
     }
-
 }
 
 extension MainTabBarViewController: UITabBarControllerDelegate {
-    override public func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    override public func tabBar(_: UITabBar, didSelect _: UITabBarItem) {
         // nothing to handle
     }
 
-    public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    public func tabBarController(_: UITabBarController, didSelect _: UIViewController) {
         // nothing to handle
     }
 }
@@ -40,23 +39,21 @@ extension MainTabBarViewController {
         tabBar.isHidden = false
         // will be handled
         viewControllers = [
-            "Home", "Main", "Main"
+            "Home", "Main", "Main",
         ].compactMap { createTabViewController(in: $0) }
         setTabButton()
 
         let appearance = createAppearance()
-        self.tabBar.standardAppearance = appearance
-        self.tabBar.scrollEdgeAppearance = appearance
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
     }
 
-    func getAttributedString(selected: Bool) -> [NSAttributedString.Key: Any] {
+    func getAttributedString(selected _: Bool) -> [NSAttributedString.Key: Any] {
         [
             .font: UIFont(name: "Helvetica", size: 12) ?? .systemFont(ofSize: 12),
-            .foregroundColor: UIColor.secondaryLabel
+            .foregroundColor: UIColor.secondaryLabel,
         ]
     }
-
-
 
     private func createTabViewController(in storyboardName: String) -> UINavigationController {
         let controller: UINavigationController = UIApplication.getViewController(
@@ -71,7 +68,6 @@ extension MainTabBarViewController {
             items[index].title = MainTabs(rawValue: index)?.title
             if index == MainTabs.home.rawValue {
                 items[index].image = UIImage(systemName: "homekit")
-
             }
             if index == MainTabs.search.rawValue {
                 items[index].image = UIImage(systemName: "magnifyingglass")

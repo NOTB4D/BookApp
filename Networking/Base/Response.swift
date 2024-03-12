@@ -11,4 +11,3 @@ public struct Response<T: Decodable>: Decodable {
     public var error: String?
     public var feed: T?
 }
-
