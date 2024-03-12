@@ -5,6 +5,7 @@
 //  Created by Eser Kucuker on 12.03.2024.
 //
 
+import Extensions
 import Foundation
 
 protocol BookDetailPresentationLogic: AnyObject {
@@ -20,7 +21,7 @@ final class BookDetailPresenter: BookDetailPresentationLogic {
                 artistName: response.artistName,
                 name: response.name,
                 releaseDate: response.releaseDate,
-                image: response.image ?? ""
+                image: response.image.stringValue
             )
         )
     }

@@ -84,8 +84,8 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueCell(type: BookCell.self, indexPath: indexPath)
         guard let model = books?.books[indexPath.item] else { return UICollectionViewCell() }
+        let cell = collectionView.dequeueCell(type: BookCell.self, indexPath: indexPath)
         cell.setUpCell(model: model)
         return cell
     }
