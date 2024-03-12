@@ -25,7 +25,12 @@
 		B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */; };
 		B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */; };
 		B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB542B9F351D00EEEA9F /* Book.swift */; };
+		B87BAB582B9F38F900EEEA9F /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB572B9F38F900EEEA9F /* Books.swift */; };
 		B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */; };
+		B8A9C41B2B9F88BE0099A2A8 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C41A2B9F88BE0099A2A8 /* MainTabBarViewController.swift */; };
+		B8A9C41D2B9F88CE0099A2A8 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A9C41C2B9F88CE0099A2A8 /* MainTabBar.storyboard */; };
+		B8A9C41F2B9F88E30099A2A8 /* MainTabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C41E2B9F88E30099A2A8 /* MainTabBarModel.swift */; };
+		B8A9C4222B9F8C090099A2A8 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = B8A9C4212B9F8C090099A2A8 /* Extensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +74,12 @@
 		B87BAB4E2B9F341400EEEA9F /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		B87BAB522B9F34E400EEEA9F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B87BAB542B9F351D00EEEA9F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B87BAB572B9F38F900EEEA9F /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		B87BAB5A2B9F754600EEEA9F /* UnitTestStubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestStubs.swift; sourceTree = "<group>"; };
+		B8A9C41A2B9F88BE0099A2A8 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		B8A9C41C2B9F88CE0099A2A8 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
+		B8A9C41E2B9F88E30099A2A8 /* MainTabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarModel.swift; sourceTree = "<group>"; };
+		B8A9C4202B9F8B8D0099A2A8 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A9C4222B9F8C090099A2A8 /* Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +111,14 @@
 		B87BAB012B9F2DE200EEEA9F = {
 			isa = PBXGroup;
 			children = (
+				B8A9C4072B9F81C00099A2A8 /* Packages */,
 				B87BAB4D2B9F334A00EEEA9F /* Production.xcconfig */,
 				B87BAB3D2B9F2ED500EEEA9F /* Networking */,
 				B87BAB0C2B9F2DE200EEEA9F /* BookApp */,
-				B87BAB232B9F2DE300EEEA9F /* BookAppTests */,
-				B87BAB2D2B9F2DE300EEEA9F /* BookAppUITests */,
 				B87BAB0B2B9F2DE200EEEA9F /* Products */,
+				B87BAB2D2B9F2DE300EEEA9F /* BookAppUITests */,
+				B87BAB232B9F2DE300EEEA9F /* BookAppTests */,
+				B8A9C4102B9F86BE0099A2A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +135,7 @@
 		B87BAB0C2B9F2DE200EEEA9F /* BookApp */ = {
 			isa = PBXGroup;
 			children = (
+				B8A9C4162B9F88350099A2A8 /* Scenes */,
 				B87BAB0D2B9F2DE200EEEA9F /* AppDelegate.swift */,
 				B87BAB0F2B9F2DE200EEEA9F /* SceneDelegate.swift */,
 				B87BAB112B9F2DE200EEEA9F /* ViewController.swift */,
@@ -156,6 +170,7 @@
 				B87BAB452B9F32AA00EEEA9F /* Extension */,
 				B87BAB402B9F326D00EEEA9F /* Base */,
 				B87BAB482B9F32DD00EEEA9F /* Networkable */,
+				B87BAB562B9F38D700EEEA9F /* Response */,
 				B87BAB592B9F751000EEEA9F /* TestStubs */,
 				B87BAB3E2B9F301E00EEEA9F /* Networkable.swift */,
 			);
@@ -207,6 +222,39 @@
 			path = TestStubs;
 			sourceTree = "<group>";
 		};
+		B8A9C4072B9F81C00099A2A8 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				B8A9C4202B9F8B8D0099A2A8 /* Extensions */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		B8A9C4102B9F86BE0099A2A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8A9C4162B9F88350099A2A8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B8A9C4172B9F88530099A2A8 /* TabBar */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B8A9C4172B9F88530099A2A8 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B8A9C41C2B9F88CE0099A2A8 /* MainTabBar.storyboard */,
+				B8A9C41A2B9F88BE0099A2A8 /* MainTabBarViewController.swift */,
+				B8A9C41E2B9F88E30099A2A8 /* MainTabBarModel.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,6 +271,9 @@
 			dependencies = (
 			);
 			name = BookApp;
+			packageProductDependencies = (
+				B8A9C4212B9F8C090099A2A8 /* Extensions */,
+			);
 			productName = BookApp;
 			productReference = B87BAB0A2B9F2DE200EEEA9F /* BookApp.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +346,8 @@
 				Base,
 			);
 			mainGroup = B87BAB012B9F2DE200EEEA9F;
+			packageReferences = (
+			);
 			productRefGroup = B87BAB0B2B9F2DE200EEEA9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B87BAB172B9F2DE300EEEA9F /* Assets.xcassets in Resources */,
+				B8A9C41D2B9F88CE0099A2A8 /* MainTabBar.storyboard in Resources */,
 				B87BAB1A2B9F2DE300EEEA9F /* Base in Resources */,
 				B87BAB152B9F2DE200EEEA9F /* Base in Resources */,
 			);
@@ -338,12 +392,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A9C41B2B9F88BE0099A2A8 /* MainTabBarViewController.swift in Sources */,
 				B87BAB122B9F2DE200EEEA9F /* ViewController.swift in Sources */,
+				B8A9C41F2B9F88E30099A2A8 /* MainTabBarModel.swift in Sources */,
 				B87BAB4C2B9F331B00EEEA9F /* Bundle+Extension.swift in Sources */,
 				B87BAB0E2B9F2DE200EEEA9F /* AppDelegate.swift in Sources */,
 				B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */,
 				B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */,
 				B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */,
+				B87BAB3F2B9F301E00EEEA9F /* Networkable.swift in Sources */,
 				B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
 				B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */,
@@ -538,8 +595,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BookApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -567,8 +624,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BookApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -701,6 +758,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8A9C4212B9F8C090099A2A8 /* Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Extensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B87BAB022B9F2DE200EEEA9F /* Project object */;
 }
