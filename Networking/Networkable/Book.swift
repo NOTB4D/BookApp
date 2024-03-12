@@ -9,12 +9,12 @@ import Foundation
 
 public extension API {
     enum Book: Networkable {
-        case getBooks
+        case getBooks(request: GetBooksRequest)
 
         public func request() async -> URLRequest {
             switch self {
-            case .getBooks:
-                return await get(path: "/api/v2/us/books/top-free/20/books.json")
+            case let .getBooks(request):
+                return await get(path: "/api/v2/us/books/top-free/\(request.page)/books.json")
             }
         }
     }
