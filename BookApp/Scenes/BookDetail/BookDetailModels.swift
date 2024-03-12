@@ -9,12 +9,22 @@ import Foundation
 
 // swiftlint:disable nesting
 enum BookDetail {
-    enum Case {
+    enum fetchBook {
         struct Request {}
 
-        struct Response {}
+        struct Response {
+            let artistName: String?
+            let name: String?
+            let releaseDate: String?
+            let image: String?
+        }
 
-        struct ViewModel {}
+        struct ViewModel {
+            let artistName: String?
+            let name: String?
+            let releaseDate: String?
+            let image: String
+        }
     }
 }
 

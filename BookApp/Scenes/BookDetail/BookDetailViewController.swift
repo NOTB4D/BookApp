@@ -7,9 +7,16 @@
 
 import UIKit
 
-protocol BookDetailDisplayLogic: AnyObject {}
+protocol BookDetailDisplayLogic: AnyObject {
+    func displayBookDetail(viewModel: BookDetail.fetchBook.ViewModel)
+}
 
 final class BookDetailViewController: UIViewController {
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var BookTitleLabel: UILabel!
+    @IBOutlet var artistNameLabel: UILabel!
+    @IBOutlet var publishDateLabel: UILabel!
+
     var interactor: BookDetailBusinessLogic?
     var router: (BookDetailRoutingLogic & BookDetailDataPassing)?
 
@@ -39,6 +46,21 @@ final class BookDetailViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Detay"
+        interactor?.fetchBookDetail()
+    }
 }
 
-extension BookDetailViewController: BookDetailDisplayLogic {}
+// MARK: BookDetailDisplayLogic
+
+extension BookDetailViewController: BookDetailDisplayLogic {
+    func displayBookDetail(viewModel: BookDetail.fetchBook.ViewModel) {
+        artistNameLabel.text = viewModel.artistName
+        publishDateLabel.text = viewModel.releaseDate
+        BookTitleLabel.text = viewModel.name
+        imageView.load(url: URL(string: viewModel.image)!)
+    }
+}
