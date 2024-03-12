@@ -9,7 +9,8 @@ import Extensions
 import UIKit
 
 protocol HomeDisplayLogic: AnyObject {
-    func displayBook(viewModel: Home.FetchBooks.ViewModel)
+    func displayBooks(viewModel: Home.FetchBooks.ViewModel)
+    func displayBook(viewModel: Home.FetchBook.ViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -48,25 +49,32 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Ana Sayfa"
         collectionView.register(BookCell.self, in: .main)
-        interactor?.doSomething()
+        interactor?.fetchBooks()
     }
 }
 
 // MARK: HomeDisplayLogic
 
 extension HomeViewController: HomeDisplayLogic {
-    func displayBook(viewModel: Home.FetchBooks.ViewModel) {
+    func displayBooks(viewModel: Home.FetchBooks.ViewModel) {
         books = viewModel
         collectionView.reloadData()
-        guard let urlString = viewModel.books.first?.image else { return }
-        // imageView.load(url: URL(string: urlString)!)
+    }
+
+    func displayBook(viewModel: Home.FetchBook.ViewModel) {
+        router?.routeToBookDetail(viewModel: viewModel)
     }
 }
 
 // MARK: CollectionViewDelegate
 
-extension HomeViewController: UICollectionViewDelegate {}
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        interactor?.fetchBook(request: .init(index: indexPath.item))
+    }
+}
 
 // MARK: CollectionViewDataSource
 
