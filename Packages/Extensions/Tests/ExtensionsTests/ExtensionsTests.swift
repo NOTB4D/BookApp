@@ -1,5 +1,5 @@
-import XCTest
 @testable import Extensions
+import XCTest
 
 final class ExtensionsTests: XCTestCase {
     func testExample() throws {

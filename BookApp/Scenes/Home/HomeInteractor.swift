@@ -8,24 +8,25 @@
 import Foundation
 
 protocol HomeBusinessLogic: AnyObject {
-    func doSomething()
+    func fetchBooks()
+    func fetchBook(request: Home.FetchBook.Request)
 }
 
-protocol HomeDataStore: AnyObject {
-    
-}
+protocol HomeDataStore: AnyObject {}
 
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
-    
     var presenter: HomePresentationLogic?
     var worker: HomeWorkingLogic = HomeWorker()
 
-    func doSomething() {
+    var books: BooksResponse?
+
+    func fetchBooks() {
         Task {
             let result = await worker.fetchBooks(request: .init())
             DispatchQueue.main.async { [weak self] in
                 switch result {
                 case let .success(response):
+                    self?.books = response
                     self?.presenter?.presentBooks(
                         response: Home.FetchBooks.Response(
                             books: response.results.compactMap {
@@ -41,5 +42,17 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                 }
             }
         }
+    }
+
+    func fetchBook(request: Home.FetchBook.Request) {
+        guard let model = books?.results[request.index] else { return }
+        presenter?.presentBook(
+            response: Home.FetchBook.Response(
+                artistName: model.artistName,
+                name: model.name,
+                releaseDate: model.releaseDate,
+                image: model.artworkUrl100
+            )
+        )
     }
 }

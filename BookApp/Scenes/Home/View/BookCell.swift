@@ -8,7 +8,6 @@
 import UIKit
 
 class BookCell: UICollectionViewCell {
-
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var bookTitleLabel: UILabel!
 
@@ -19,7 +18,7 @@ class BookCell: UICollectionViewCell {
     }
 
     func setUpCell(model: Home.FetchBooks.ViewModel.Book?) {
-        guard let model else {return}
+        guard let model else { return }
         imageView.load(url: URL(string: model.image!)!)
         bookTitleLabel.text = model.artistName
     }
@@ -28,5 +27,4 @@ class BookCell: UICollectionViewCell {
         imageView.image = nil
         bookTitleLabel.text = nil
     }
-
 }

@@ -10,14 +10,14 @@ import UIKit
 
 protocol HomePresentationLogic: AnyObject {
     func presentBooks(response: Home.FetchBooks.Response)
+    func presentBook(response: Home.FetchBook.Response)
 }
 
 final class HomePresenter: HomePresentationLogic {
-    
     weak var viewController: HomeDisplayLogic?
 
     func presentBooks(response: Home.FetchBooks.Response) {
-        viewController?.displayBook(
+        viewController?.displayBooks(
             viewModel: Home.FetchBooks.ViewModel(
                 books: response.books.compactMap {
                     .init(
@@ -25,6 +25,17 @@ final class HomePresenter: HomePresentationLogic {
                         image: $0.image
                     )
                 }
+            )
+        )
+    }
+
+    func presentBook(response: Home.FetchBook.Response) {
+        viewController?.displayBook(
+            viewModel: Home.FetchBook.ViewModel(
+                artistName: response.artistName,
+                name: response.name,
+                releaseDate: response.releaseDate,
+                image: response.image
             )
         )
     }

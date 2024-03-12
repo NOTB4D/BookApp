@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class UnitTestStubs {
+enum UnitTestStubs {
     /// Result of the request, which is going to happen.
     static var result: StubResult?
 
-    static func canResponse<V: Decodable>(_ type: V.Type) async -> Result<V, Error> {
+    static func canResponse<V: Decodable>(_: V.Type) async -> Result<V, Error> {
         guard let result = UnitTestStubs.result else {
             return .failure(NSError(domain: "decoding error", code: -333))
         }
@@ -27,7 +27,6 @@ final class UnitTestStubs {
             return .failure(error)
         case let .failureStatusCode(int):
             return .failure(NSError(domain: "stub", code: int))
-
         }
     }
 }
@@ -52,7 +51,8 @@ extension UnitTestStubs.StubResult {
     /// - Returns: Returns `StubURLProtocol.Result.success(Data)` with data from specified file url.
     static func getData(from url: URL?) -> Self {
         guard let fileUrl = url,
-              let data = try? Data(contentsOf: fileUrl) else {
+              let data = try? Data(contentsOf: fileUrl)
+        else {
             fatalError("Could not load data from specified path: \(url?.absoluteString ?? "")")
         }
         return .success(data)
@@ -64,7 +64,8 @@ extension UnitTestStubs.StubResult {
     static func getData(from path: String?) -> Self {
         guard let filePath = path,
               let url = URL(string: "file://\(filePath)"),
-              let data = try? Data(contentsOf: url) else {
+              let data = try? Data(contentsOf: url)
+        else {
             fatalError("Could not load data from specified path: \(path ?? "")")
         }
         return .success(data)

@@ -5,8 +5,8 @@
 //  Created by Eser Kucuker on 11.03.2024.
 //
 
-import Foundation
 import Extensions
+import Foundation
 
 enum MainTabs: Int, CaseCountable {
     case home = 0

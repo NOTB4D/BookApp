@@ -7,12 +7,12 @@
 
 import Foundation
 
-
 struct BooksResponse: Decodable {
     let results: [Books]
 }
 
 // MARK: - Result
+
 struct Books: Codable {
     let artistName: String?
     let id: String?
@@ -58,6 +58,7 @@ enum ContentAdvisoryRating: String, Codable {
 }
 
 // MARK: - Genre
+
 struct Genre: Codable {
     let genreID: String?
     let name: String?

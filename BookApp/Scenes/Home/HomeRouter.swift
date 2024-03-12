@@ -5,10 +5,12 @@
 //  Created by Eser Kucuker on 12.03.2024.
 //
 
+import Extensions
 import Foundation
+import UIKit
 
 protocol HomeRoutingLogic: AnyObject {
-    
+    func routeToBookDetail(viewModel: Home.FetchBook.ViewModel)
 }
 
 protocol HomeDataPassing: AnyObject {
@@ -16,8 +18,13 @@ protocol HomeDataPassing: AnyObject {
 }
 
 final class HomeRouter: HomeRoutingLogic, HomeDataPassing {
-    
     weak var viewController: HomeViewController?
     var dataStore: HomeDataStore?
-    
+
+    func routeToBookDetail(viewModel: Home.FetchBook.ViewModel) {
+        guard let viewController else { return }
+        let detailViewController: BookDetailViewController = UIApplication.getViewController()
+        detailViewController.router?.dataStore?.book = viewModel.getBookDetailModel()
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
