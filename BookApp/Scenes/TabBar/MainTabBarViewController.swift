@@ -40,7 +40,7 @@ extension MainTabBarViewController {
         tabBar.isHidden = false
         // will be handled
         viewControllers = [
-            "Main", "Main", "Main"
+            "Home", "Main", "Main"
         ].compactMap { createTabViewController(in: $0) }
         setTabButton()
 
