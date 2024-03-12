@@ -8,7 +8,7 @@
 import Foundation
 import Extensions
 
-enum MarketTabs: Int, CaseCountable {
+enum MainTabs: Int, CaseCountable {
     case home = 0
     case search
     case favorite
