@@ -1,15 +1,14 @@
 //
-//  HomeModels.swift
+//  FavoriteModels.swift
 //  BookApp
 //
-//  Created by Eser Kucuker on 12.03.2024.
+//  Created by Eser Kucuker on 13.03.2024.
 //
 
 import Foundation
-import UIKit
 
 // swiftlint:disable nesting
-enum Home {
+enum Favorite {
     enum FetchBooks {
         struct Request {}
 
@@ -68,7 +67,7 @@ enum Home {
     }
 }
 
-extension Home.FetchBook.ViewModel {
+extension Favorite.FetchBook.ViewModel {
     func getBookDetailModel() -> BookDetail.fetchBook.Response {
         .init(id: id, artistName: artistName, name: name, releaseDate: releaseDate, image: image, isFavorite: isFavorite)
     }

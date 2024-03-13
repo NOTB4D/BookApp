@@ -1,25 +1,24 @@
 //
-//  HomePresenter.swift
+//  FavoritePresenter.swift
 //  BookApp
 //
-//  Created by Eser Kucuker on 12.03.2024.
+//  Created by Eser Kucuker on 13.03.2024.
 //
 
 import Foundation
-import UIKit
 
-protocol HomePresentationLogic: AnyObject {
-    func presentBooks(response: Home.FetchBooks.Response)
-    func presentBook(response: Home.FetchBook.Response)
-    func presentFavoriteBook(response: Home.FetchFavoriteBook.Response)
+protocol FavoritePresentationLogic: AnyObject {
+    func presentBooks(response: Favorite.FetchBooks.Response)
+    func presentBook(response: Favorite.FetchBook.Response)
+    func presentFavoriteBook(response: Favorite.FetchFavoriteBook.Response)
 }
 
-final class HomePresenter: HomePresentationLogic {
-    weak var viewController: HomeDisplayLogic?
+final class FavoritePresenter: FavoritePresentationLogic {
+    weak var viewController: FavoriteDisplayLogic?
 
-    func presentBooks(response: Home.FetchBooks.Response) {
+    func presentBooks(response: Favorite.FetchBooks.Response) {
         viewController?.displayBooks(
-            viewModel: Home.FetchBooks.ViewModel(
+            viewModel: Favorite.FetchBooks.ViewModel(
                 books: response.books.compactMap {
                     .init(
                         id: $0.id,
@@ -32,9 +31,9 @@ final class HomePresenter: HomePresentationLogic {
         )
     }
 
-    func presentBook(response: Home.FetchBook.Response) {
+    func presentBook(response: Favorite.FetchBook.Response) {
         viewController?.displayBook(
-            viewModel: Home.FetchBook.ViewModel(
+            viewModel: Favorite.FetchBook.ViewModel(
                 id: response.id,
                 artistName: response.artistName,
                 name: response.name,
@@ -45,9 +44,9 @@ final class HomePresenter: HomePresentationLogic {
         )
     }
 
-    func presentFavoriteBook(response: Home.FetchFavoriteBook.Response) {
+    func presentFavoriteBook(response: Favorite.FetchFavoriteBook.Response) {
         viewController?.displayFavoriteBook(
-            viewModel: Home.FetchFavoriteBook.ViewModel(
+            viewModel: Favorite.FetchFavoriteBook.ViewModel(
                 books: response.books.compactMap {
                     .init(
                         id: $0.id,

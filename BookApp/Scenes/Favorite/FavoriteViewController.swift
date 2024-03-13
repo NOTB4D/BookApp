@@ -1,25 +1,23 @@
 //
-//  HomeViewController.swift
+//  FavoriteViewController.swift
 //  BookApp
 //
-//  Created by Eser Kucuker on 12.03.2024.
+//  Created by Eser Kucuker on 13.03.2024.
 //
 
-import Extensions
 import UIKit
 
-protocol HomeDisplayLogic: AnyObject {
-    func displayBooks(viewModel: Home.FetchBooks.ViewModel)
-    func displayBook(viewModel: Home.FetchBook.ViewModel)
-    func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel)
+protocol FavoriteDisplayLogic: AnyObject {
+    func displayBooks(viewModel: Favorite.FetchBooks.ViewModel)
+    func displayBook(viewModel: Favorite.FetchBook.ViewModel)
+    func displayFavoriteBook(viewModel: Favorite.FetchFavoriteBook.ViewModel)
 }
 
-final class HomeViewController: UIViewController {
+final class FavoriteViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
-
-    var interactor: HomeBusinessLogic?
-    var router: (HomeRoutingLogic & HomeDataPassing)?
-    var books: [Home.Book]?
+    var interactor: FavoriteBusinessLogic?
+    var router: (FavoriteRoutingLogic & FavoriteDataPassing)?
+    var books: [Favorite.Book]?
 
     // MARK: Object lifecycle
 
@@ -37,9 +35,9 @@ final class HomeViewController: UIViewController {
 
     private func setup() {
         let viewController = self
-        let interactor = HomeInteractor()
-        let presenter = HomePresenter()
-        let router = HomeRouter()
+        let interactor = FavoriteInteractor()
+        let presenter = FavoritePresenter()
+        let router = FavoriteRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -50,52 +48,46 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Ana Sayfa"
+        title = "Favoriler"
         collectionView.register(BookCell.self, in: .main)
-        interactor?.fetchBooks()
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(listenFunc),
-            name: Notification.Name("changedFavoriteStatus"),
-            object: nil
-        )
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.fetchBooks()
     }
 }
 
 // MARK: HomeDisplayLogic
 
-extension HomeViewController: HomeDisplayLogic {
-    func displayBooks(viewModel: Home.FetchBooks.ViewModel) {
+extension FavoriteViewController: FavoriteDisplayLogic {
+    func displayBooks(viewModel: Favorite.FetchBooks.ViewModel) {
         books = viewModel.books
         collectionView.reloadData()
     }
 
-    func displayBook(viewModel: Home.FetchBook.ViewModel) {
+    func displayBook(viewModel: Favorite.FetchBook.ViewModel) {
         router?.routeToBookDetail(viewModel: viewModel)
     }
 
-    func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel) {
+    func displayFavoriteBook(viewModel: Favorite.FetchFavoriteBook.ViewModel) {
         books = viewModel.books
-        collectionView.reloadItems(at: viewModel.indexPath)
+        collectionView.reloadData()
     }
 }
 
 // MARK: CollectionViewDelegate
 
-extension HomeViewController: UICollectionViewDelegate {
+extension FavoriteViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let id = books?[indexPath.row].id else { return }
+        guard let id = books?[indexPath.item].id else { return }
         interactor?.fetchBook(request: .init(bookId: id))
     }
 }
 
 // MARK: CollectionViewDataSource
 
-extension HomeViewController: UICollectionViewDataSource {
+extension FavoriteViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         books?.count ?? .zero
     }
@@ -104,13 +96,14 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let model = books?[indexPath.item] else { return UICollectionViewCell() }
         let cell = collectionView.dequeueCell(type: BookCell.self, indexPath: indexPath)
         cell.setUpCell(model: .init(model: model))
+        cell.delegate = self
         return cell
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
@@ -124,16 +117,18 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension HomeViewController {
-    @objc func listenFunc(_ notification: Notification) {
-        guard let id = notification.object as? String else { return }
-        interactor?.addOrDeleteBookToFavoriteBookList(with: id)
+// MARK: BookCellDelegate
+
+extension FavoriteViewController: BookCellDelegate {
+    func didSubmitFavoriteButton(at cellmodel: BookCellModel) {
+        guard let id = cellmodel.id else { return }
+        interactor?.deleteBookToFavoriteBookList(with: id)
     }
 }
 
 // MARK: BookDetailViewControllerDelegate
 
-extension HomeViewController: BookDetailViewControllerDelegate {
+extension FavoriteViewController: BookDetailViewControllerDelegate {
     func didFavoriteStatusChanged(at id: String) {
         interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }

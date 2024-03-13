@@ -9,6 +9,7 @@ import Foundation
 
 protocol BookDetailBusinessLogic: AnyObject {
     func fetchBookDetail()
+    func changedFavoriteStatus()
 }
 
 protocol BookDetailDataStore: AnyObject {
@@ -24,5 +25,17 @@ final class BookDetailInteractor: BookDetailBusinessLogic, BookDetailDataStore {
     func fetchBookDetail() {
         guard let book else { return }
         presenter?.pressentBookDetail(response: book)
+    }
+
+    func changedFavoriteStatus() {
+        var isFavorite = (book?.isFavorite).trueValue
+        isFavorite.toggle()
+        book?.isFavorite = isFavorite
+        presenter?.presentChangedFavoriteStatus(
+            response: BookDetail.fetchFavoriteStatus.Response(
+                id: book?.id,
+                isFavorite: isFavorite
+            )
+        )
     }
 }

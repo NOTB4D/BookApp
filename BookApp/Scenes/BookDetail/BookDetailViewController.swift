@@ -9,6 +9,11 @@ import UIKit
 
 protocol BookDetailDisplayLogic: AnyObject {
     func displayBookDetail(viewModel: BookDetail.fetchBook.ViewModel)
+    func displayChangedFavoriteStatus(viewModel: BookDetail.fetchFavoriteStatus.ViewModel)
+}
+
+protocol BookDetailViewControllerDelegate: AnyObject {
+    func didFavoriteStatusChanged(at id: String)
 }
 
 final class BookDetailViewController: UIViewController {
@@ -19,6 +24,8 @@ final class BookDetailViewController: UIViewController {
 
     var interactor: BookDetailBusinessLogic?
     var router: (BookDetailRoutingLogic & BookDetailDataPassing)?
+    var starBarButton = UIBarButtonItem()
+    weak var delegate: BookDetailViewControllerDelegate?
 
     // MARK: Object lifecycle
 
@@ -49,8 +56,23 @@ final class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavBar()
         title = "Detay"
         interactor?.fetchBookDetail()
+    }
+
+    func setNavBar() {
+        starBarButton = UIBarButtonItem(
+            image: UIImage(systemName: "star.fill"),
+            style: .done,
+            target: self,
+            action: #selector(changedFavoriteStatus)
+        )
+        navigationItem.rightBarButtonItem = starBarButton
+    }
+
+    @objc func changedFavoriteStatus() {
+        interactor?.changedFavoriteStatus()
     }
 }
 
@@ -62,5 +84,12 @@ extension BookDetailViewController: BookDetailDisplayLogic {
         publishDateLabel.text = viewModel.releaseDate
         BookTitleLabel.text = viewModel.name
         imageView.load(url: URL(string: viewModel.image)!)
+        starBarButton.tintColor = viewModel.isFavorite ? .yellow : .darkGray
+    }
+
+    func displayChangedFavoriteStatus(viewModel: BookDetail.fetchFavoriteStatus.ViewModel) {
+        starBarButton.tintColor = viewModel.isFavorite ? .yellow : .darkGray
+        guard let id = viewModel.id else { return }
+        delegate?.didFavoriteStatusChanged(at: id)
     }
 }

@@ -12,6 +12,7 @@ protocol LocalStorageManagerProtocol {
     var viewContext: NSManagedObjectContext { get }
     func setup()
     func fetchBook(withId bookId: String) -> Book?
+    func fetchBooks() -> [Book]?
     func add(book: BookDataModel)
     func deleteBook(withId bookId: String)
     func removeAll()
