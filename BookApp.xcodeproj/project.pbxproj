@@ -51,6 +51,7 @@
 		B8A9C44E2BA092FC0099A2A8 /* BookDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4462BA092FC0099A2A8 /* BookDetailWorker.swift */; };
 		B8A9C44F2BA092FC0099A2A8 /* BookDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4472BA092FC0099A2A8 /* BookDetailRouter.swift */; };
 		B8A9C4562BA0FE260099A2A8 /* BookCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4542BA0FE260099A2A8 /* BookCoreData.xcdatamodeld */; };
+		B8A9C4582BA100450099A2A8 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4572BA100450099A2A8 /* Book+CoreDataClass.swift */; };
 		B8A9C45A2BA101AA0099A2A8 /* BookDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4592BA101AA0099A2A8 /* BookDataModel.swift */; };
 		B8A9C45E2BA17B170099A2A8 /* LocalStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4522BA0FB650099A2A8 /* LocalStorageManagerProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		B8A9C4472BA092FC0099A2A8 /* BookDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailRouter.swift; sourceTree = "<group>"; };
 		B8A9C4522BA0FB650099A2A8 /* LocalStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManagerProtocol.swift; sourceTree = "<group>"; };
 		B8A9C4552BA0FE260099A2A8 /* BookCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookCoreData.xcdatamodel; sourceTree = "<group>"; };
+		B8A9C4572BA100450099A2A8 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B8A9C4592BA101AA0099A2A8 /* BookDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -353,6 +355,7 @@
 				B8A9C4532BA0FC4C0099A2A8 /* CoreData */,
 				B8A9C4522BA0FB650099A2A8 /* LocalStorageManagerProtocol.swift */,
 				B8A9C4542BA0FE260099A2A8 /* BookCoreData.xcdatamodeld */,
+				B8A9C4572BA100450099A2A8 /* Book+CoreDataClass.swift */,
 		B8A9C45D2BA17A550099A2A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +530,7 @@
 				B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */,
 				B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */,
 				B8A9C4392BA05D5D0099A2A8 /* GetBooksRequest.swift in Sources */,
+				B8A9C4582BA100450099A2A8 /* Book+CoreDataClass.swift in Sources */,
 				B8A9C42F2BA05D190099A2A8 /* HomeSUIP.swift in Sources */,
 				B8A9C4302BA05D190099A2A8 /* HomeViewController.swift in Sources */,
 				B8A9C4312BA05D190099A2A8 /* HomePresenter.swift in Sources */,
