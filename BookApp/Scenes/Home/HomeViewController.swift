@@ -106,6 +106,11 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.setUpCell(model: .init(model: model))
         return cell
     }
+
+    func collectionView(_: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard indexPath.row == (books?.count ?? .zero) - 5 else { return }
+        interactor?.fetcBooksNextPage()
+    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
