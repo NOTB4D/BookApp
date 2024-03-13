@@ -12,6 +12,7 @@ protocol HomeBusinessLogic: AnyObject {
     func fetchBooks()
     func fetchBook(request: Home.FetchBook.Request)
     func addOrDeleteBookToFavoriteBookList(with id: String)
+    func fetcBooksNextPage()
 }
 
 protocol HomeDataStore: AnyObject {}
@@ -19,26 +20,34 @@ protocol HomeDataStore: AnyObject {}
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
     var worker: HomeWorkingLogic = HomeWorker()
-
-    var books: BooksResponse?
+    var isLoading: Bool = false
+    var currentPage: Int = 0
+    var books: [Books]?
 
     func fetchBooks() {
+        fetchBooksList()
+    }
+
+    func fetchBooksList(at page: Int = AppConstants.Home.paginationSize) {
+        isLoading = true
         Task {
-            let result = await worker.fetchBooks(request: .init())
+            let result = await worker.fetchBooks(request: .init(page: page))
             DispatchQueue.main.async { [weak self] in
+                self?.isLoading = false
                 switch result {
                 case let .success(response):
-                    self?.books = response
+                    self?.books = response.results
+                    self?.currentPage += AppConstants.Home.paginationSize
                     self?.presenter?.presentBooks(
                         response: Home.FetchBooks.Response(
-                            books: response.results.compactMap {
+                            books: self?.books?.compactMap {
                                 .init(
                                     id: $0.id,
                                     artistName: $0.name,
                                     image: $0.artworkUrl100,
                                     isFavorite: (self?.isBookfavorite(with: ($0.id).stringValue)).falseValue
                                 )
-                            }
+                            } ?? []
                         )
                     )
                 case let .failure(error):
@@ -48,8 +57,14 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         }
     }
 
+    func fetcBooksNextPage() {
+        if !isLoading {
+            fetchBooksList(at: currentPage)
+        }
+    }
+
     func fetchBook(request: Home.FetchBook.Request) {
-        guard let model = books?.results.first(where: { $0.id == request.bookId }) else { return }
+        guard let model = books?.first(where: { $0.id == request.bookId }) else { return }
         presenter?.presentBook(
             response: Home.FetchBook.Response(
                 id: model.id,
@@ -78,7 +93,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     }
 
     func addBookToFavorite(with id: String) {
-        guard let book = books?.results.first(where: { $0.id == id }) else { return }
+        guard let book = books?.first(where: { $0.id == id }) else { return }
         let model: BookDataModel = .init(
             id: book.id,
             name: book.name,
@@ -99,7 +114,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         guard let index = findBookIndex(at: id) else { return }
         presenter?.presentFavoriteBook(
             response: Home.FetchFavoriteBook.Response(
-                books: books?.results.compactMap {
+                books: books?.compactMap {
                     .init(
                         id: $0.id,
                         artistName: $0.name,
@@ -117,7 +132,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     /// - Returns: An array of index paths for the updated item, or nil if not found.
     func findBookIndex(at id: String) -> [IndexPath]? {
         var itemIndexes: [IndexPath] = []
-        guard let itemIndex = books?.results.firstIndex(where: { $0.id == id }) else { return nil }
+        guard let itemIndex = books?.firstIndex(where: { $0.id == id }) else { return nil }
         // Create an IndexPath for the item (in section 0) and append to itemIndexes
         let indexPath = IndexPath(item: itemIndex, section: 0)
         itemIndexes.append(indexPath)

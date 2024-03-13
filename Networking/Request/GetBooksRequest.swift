@@ -8,5 +8,11 @@
 import Foundation
 
 public struct GetBooksRequest {
-    public let page: Int = 20
+    public init(
+        page: Int = 20
+    ) {
+        self.page = page
+    }
+
+    public let page: Int
 }
