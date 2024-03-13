@@ -17,6 +17,7 @@ enum Home {
             let books: [Book]
 
             struct Book {
+                let id: String?
                 let artistName: String?
                 let image: String?
             }
@@ -26,6 +27,7 @@ enum Home {
             let books: [Book]
 
             struct Book {
+                let id: String?
                 let artistName: String?
                 let image: String?
             }

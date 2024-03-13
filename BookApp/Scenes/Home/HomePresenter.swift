@@ -21,6 +21,7 @@ final class HomePresenter: HomePresentationLogic {
             viewModel: Home.FetchBooks.ViewModel(
                 books: response.books.compactMap {
                     .init(
+                        id: $0.id,
                         artistName: $0.artistName,
                         image: $0.image
                     )
