@@ -92,7 +92,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let model = books?[indexPath.item] else { return UICollectionViewCell() }
         let cell = collectionView.dequeueCell(type: BookCell.self, indexPath: indexPath)
-        cell.setUpCell(model: model)
+        cell.setUpCell(model: .init(model: model))
         cell.delegate = self
         return cell
     }
@@ -117,7 +117,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 // MARK: BookCellDelegate
 
 extension HomeViewController: BookCellDelegate {
-    func didSubmitFavoriteButton(at cellmodel: Home.Book) {
+    func didSubmitFavoriteButton(at cellmodel: BookCellModel) {
         guard let id = cellmodel.id else { return }
         interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }

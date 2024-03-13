@@ -83,4 +83,15 @@ final class BookCoreData: LocalStorageManagerProtocol {
             print("Failed to delete all data: \(error)")
         }
     }
+
+    func fetchBooks() -> [Book]? {
+        let fetchRequest = Book.fetchRequest()
+
+        do {
+            return try persistentContainer.viewContext.fetch(fetchRequest)
+        } catch {
+            print("Error occured while fetching from storage: \(error.localizedDescription)")
+            return []
+        }
+    }
 }

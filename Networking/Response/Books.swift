@@ -31,13 +31,13 @@ struct Books: Codable {
         id: String?,
         name: String?,
         releaseDate: String?,
-        kind: String?,
-        artistId: String?,
-        artistUrl: String?,
-        contentAdvisoryRating: ContentAdvisoryRating?,
+        kind: String? = nil,
+        artistId: String? = nil,
+        artistUrl: String? = nil,
+        contentAdvisoryRating: ContentAdvisoryRating? = nil,
         artworkUrl100: String?,
-        genres: [Genre]?,
-        url: String?
+        genres: [Genre]? = nil,
+        url: String? = nil
     ) {
         self.artistName = artistName
         self.id = id

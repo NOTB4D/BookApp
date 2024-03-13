@@ -31,4 +31,8 @@ public final class LocalStorageManager {
     func removeAll() {
         localStore.removeAll()
     }
+
+    func fetchBooks() -> [Book]? {
+        localStore.fetchBooks()
+    }
 }

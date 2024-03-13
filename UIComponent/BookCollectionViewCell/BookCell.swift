@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BookCellDelegate: AnyObject {
-    func didSubmitFavoriteButton(at cellmodel: Home.Book)
+    func didSubmitFavoriteButton(at cellmodel: BookCellModel)
 }
 
 class BookCell: UICollectionViewCell {
@@ -17,13 +17,13 @@ class BookCell: UICollectionViewCell {
     @IBOutlet var favoriteButton: UIButton!
 
     weak var delegate: BookCellDelegate?
-    var cellModel: Home.Book?
+    var cellModel: BookCellModel?
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func setUpCell(model: Home.Book?) {
+    func setUpCell(model: BookCellModel?) {
         guard let model else { return }
         cellModel = model
         imageView.load(url: URL(string: model.image!)!)
@@ -39,5 +39,26 @@ class BookCell: UICollectionViewCell {
     @IBAction func submitfavorite(_: Any) {
         guard let cellModel else { return }
         delegate?.didSubmitFavoriteButton(at: cellModel)
+    }
+}
+
+public struct BookCellModel {
+    let id: String?
+    let artistName: String?
+    let image: String?
+    let isFavorite: Bool
+
+    init(model: Home.Book) {
+        id = model.id
+        artistName = model.artistName
+        image = model.image
+        isFavorite = model.isFavorite
+    }
+
+    init(model: Favorite.Book) {
+        id = model.id
+        artistName = model.artistName
+        image = model.image
+        isFavorite = model.isFavorite
     }
 }
