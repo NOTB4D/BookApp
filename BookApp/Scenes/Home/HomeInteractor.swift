@@ -49,13 +49,15 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     }
 
     func fetchBook(request: Home.FetchBook.Request) {
-        guard let model = books?.results[request.index] else { return }
+        guard let model = books?.results.first(where: { $0.id == request.bookId }) else { return }
         presenter?.presentBook(
             response: Home.FetchBook.Response(
+                id: model.id,
                 artistName: model.artistName,
                 name: model.name,
                 releaseDate: model.releaseDate,
-                image: model.artworkUrl100
+                image: model.artworkUrl100,
+                isFavorite: isBookfavorite(with: (model.id).stringValue)
             )
         )
     }

@@ -25,6 +25,7 @@ final class FavoriteRouter: FavoriteRoutingLogic, FavoriteDataPassing {
         guard let viewController else { return }
         let detailViewController: BookDetailViewController = UIApplication.getViewController()
         detailViewController.router?.dataStore?.book = viewModel.getBookDetailModel()
+        detailViewController.delegate = viewController
         viewController.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

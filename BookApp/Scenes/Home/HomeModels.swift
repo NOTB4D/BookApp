@@ -31,21 +31,25 @@ enum Home {
 
     enum FetchBook {
         struct Request {
-            let index: Int
+            let bookId: String
         }
 
         struct Response {
+            let id: String?
             let artistName: String?
             let name: String?
             let releaseDate: String?
             let image: String?
+            let isFavorite: Bool
         }
 
         struct ViewModel {
+            let id: String?
             let artistName: String?
             let name: String?
             let releaseDate: String?
             let image: String?
+            let isFavorite: Bool
         }
     }
 
@@ -66,7 +70,7 @@ enum Home {
 
 extension Home.FetchBook.ViewModel {
     func getBookDetailModel() -> BookDetail.fetchBook.Response {
-        .init(artistName: artistName, name: name, releaseDate: releaseDate, image: image)
+        .init(id: id, artistName: artistName, name: name, releaseDate: releaseDate, image: image, isFavorite: isFavorite)
     }
 }
 

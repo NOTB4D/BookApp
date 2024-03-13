@@ -11,6 +11,7 @@ protocol FavoriteBusinessLogic: AnyObject {
     func fetchBooks()
     func fetchBook(request: Favorite.FetchBook.Request)
     func deleteBookToFavoriteBookList(with id: String)
+    func addOrDeleteBookToFavoriteBookList(with id: String)
 }
 
 protocol FavoriteDataStore: AnyObject {}
@@ -47,15 +48,45 @@ final class FavoriteInteractor: FavoriteBusinessLogic, FavoriteDataStore {
     }
 
     func fetchBook(request: Favorite.FetchBook.Request) {
-        guard let model = books?[request.index] else { return }
+        guard let model = books?.first(where: { $0.id == request.bookId }) else { return }
         presenter?.presentBook(
             response: Favorite.FetchBook.Response(
+                id: model.id,
                 artistName: model.artistName,
                 name: model.name,
                 releaseDate: model.releaseDate,
-                image: model.artworkUrl100
+                image: model.artworkUrl100,
+                isFavorite: true
             )
         )
+    }
+
+    func addOrDeleteBookToFavoriteBookList(with id: String) {
+        if isBookfavorite(with: id) {
+            deleteBookToFavoriteBookList(with: id)
+            refreshList(at: id)
+        } else {
+            addBookToFavorite(with: id)
+            refreshList(at: id)
+        }
+    }
+
+    func isBookfavorite(with id: String) -> Bool {
+        let book = LocalStorageManager.shared.fetchBook(withId: id)
+        return book != nil
+    }
+
+    func addBookToFavorite(with id: String) {
+        guard let book = books?.first(where: { $0.id == id }) else { return }
+        let model: BookDataModel = .init(
+            id: book.id,
+            name: book.name,
+            publishDate: book.releaseDate,
+            authorName: book.artistName,
+            image: book.artworkUrl100
+        )
+        LocalStorageManager.shared.add(book: model)
+        print("Favoriye Eklendi")
     }
 
     func deleteBookToFavoriteBookList(with id: String) {
@@ -66,10 +97,9 @@ final class FavoriteInteractor: FavoriteBusinessLogic, FavoriteDataStore {
 
     func refreshList(at id: String) {
         guard let index = findBookIndex(at: id) else { return }
-        books?.removeAll(where: { $0.id == id })
         presenter?.presentFavoriteBook(
             response: Favorite.FetchFavoriteBook.Response(
-                books: books?.compactMap {
+                books: books?.filter { $0.id != id }.compactMap {
                     .init(
                         id: $0.id,
                         artistName: $0.name,

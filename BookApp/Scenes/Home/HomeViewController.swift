@@ -88,7 +88,8 @@ extension HomeViewController: HomeDisplayLogic {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        interactor?.fetchBook(request: .init(index: indexPath.item))
+        guard let id = books?[indexPath.row].id else { return }
+        interactor?.fetchBook(request: .init(bookId: id))
     }
 }
 
@@ -126,6 +127,14 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController {
     @objc func listenFunc(_ notification: Notification) {
         guard let id = notification.object as? String else { return }
+        interactor?.addOrDeleteBookToFavoriteBookList(with: id)
+    }
+}
+
+// MARK: BookDetailViewControllerDelegate
+
+extension HomeViewController: BookDetailViewControllerDelegate {
+    func didFavoriteStatusChanged(at id: String) {
         interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }
 }

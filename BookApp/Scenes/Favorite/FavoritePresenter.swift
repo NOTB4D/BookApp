@@ -34,10 +34,12 @@ final class FavoritePresenter: FavoritePresentationLogic {
     func presentBook(response: Favorite.FetchBook.Response) {
         viewController?.displayBook(
             viewModel: Favorite.FetchBook.ViewModel(
+                id: response.id,
                 artistName: response.artistName,
                 name: response.name,
                 releaseDate: response.releaseDate,
-                image: response.image
+                image: response.image,
+                isFavorite: response.isFavorite
             )
         )
     }

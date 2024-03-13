@@ -10,6 +10,7 @@ import Foundation
 
 protocol BookDetailPresentationLogic: AnyObject {
     func pressentBookDetail(response: BookDetail.fetchBook.Response)
+    func presentChangedFavoriteStatus(response: BookDetail.fetchFavoriteStatus.Response)
 }
 
 final class BookDetailPresenter: BookDetailPresentationLogic {
@@ -21,7 +22,17 @@ final class BookDetailPresenter: BookDetailPresentationLogic {
                 artistName: response.artistName,
                 name: response.name,
                 releaseDate: response.releaseDate,
-                image: response.image.stringValue
+                image: response.image.stringValue,
+                isFavorite: response.isFavorite
+            )
+        )
+    }
+
+    func presentChangedFavoriteStatus(response: BookDetail.fetchFavoriteStatus.Response) {
+        viewController?.displayChangedFavoriteStatus(
+            viewModel: BookDetail.fetchFavoriteStatus.ViewModel(
+                id: response.id,
+                isFavorite: response.isFavorite
             )
         )
     }

@@ -35,10 +35,12 @@ final class HomePresenter: HomePresentationLogic {
     func presentBook(response: Home.FetchBook.Response) {
         viewController?.displayBook(
             viewModel: Home.FetchBook.ViewModel(
+                id: response.id,
                 artistName: response.artistName,
                 name: response.name,
                 releaseDate: response.releaseDate,
-                image: response.image
+                image: response.image,
+                isFavorite: response.isFavorite
             )
         )
     }

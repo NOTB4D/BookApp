@@ -80,7 +80,8 @@ extension FavoriteViewController: FavoriteDisplayLogic {
 
 extension FavoriteViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        interactor?.fetchBook(request: .init(index: indexPath.item))
+        guard let id = books?[indexPath.item].id else { return }
+        interactor?.fetchBook(request: .init(bookId: id))
     }
 }
 
@@ -122,5 +123,13 @@ extension FavoriteViewController: BookCellDelegate {
     func didSubmitFavoriteButton(at cellmodel: BookCellModel) {
         guard let id = cellmodel.id else { return }
         interactor?.deleteBookToFavoriteBookList(with: id)
+    }
+}
+
+// MARK: BookDetailViewControllerDelegate
+
+extension FavoriteViewController: BookDetailViewControllerDelegate {
+    func didFavoriteStatusChanged(at id: String) {
+        interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }
 }
