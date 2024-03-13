@@ -46,10 +46,14 @@ final class FavoriteViewController: UIViewController {
         router.dataStore = interactor
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         title = "Favoriler"
         collectionView.register(BookCell.self, in: .main)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         interactor?.fetchBooks()
     }
 }
