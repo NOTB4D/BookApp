@@ -62,8 +62,8 @@ extension FavoriteViewController: FavoriteDisplayLogic {
         collectionView.reloadData()
     }
 
-    func displayBook(viewModel _: Favorite.FetchBook.ViewModel) {
-        //  router?.routeToBookDetail(viewModel: viewModel)
+    func displayBook(viewModel: Favorite.FetchBook.ViewModel) {
+        router?.routeToBookDetail(viewModel: viewModel)
     }
 
     func displayFavoriteBook(viewModel: Favorite.FetchFavoriteBook.ViewModel) {
