@@ -59,13 +59,9 @@ final class FavoriteInteractor: FavoriteBusinessLogic, FavoriteDataStore {
     }
 
     func deleteBookToFavoriteBookList(with id: String) {
-        deleteBookToFavorite(with: id)
-        refreshList(at: id)
-    }
-
-    func deleteBookToFavorite(with id: String) {
         LocalStorageManager.shared.deleteBook(withId: id)
         print("Favoriden cıkartıldı")
+        refreshList(at: id)
     }
 
     func refreshList(at id: String) {
