@@ -15,23 +15,18 @@ enum Home {
 
         struct Response {
             let books: [Book]
-
-            struct Book {
-                let id: String?
-                let artistName: String?
-                let image: String?
-            }
         }
 
         struct ViewModel {
             let books: [Book]
-
-            struct Book {
-                let id: String?
-                let artistName: String?
-                let image: String?
-            }
         }
+    }
+
+    struct Book {
+        let id: String?
+        let artistName: String?
+        let image: String?
+        let isFavorite: Bool
     }
 
     enum FetchBook {
@@ -51,6 +46,20 @@ enum Home {
             let name: String?
             let releaseDate: String?
             let image: String?
+        }
+    }
+
+    enum FetchFavoriteBook {
+        struct Request {}
+
+        struct Response {
+            let books: [Book]
+            let indexPath: [IndexPath]
+        }
+
+        struct ViewModel {
+            let books: [Book]
+            let indexPath: [IndexPath]
         }
     }
 }

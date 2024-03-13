@@ -5,6 +5,7 @@
 //  Created by Eser Kucuker on 12.03.2024.
 //
 
+import Extensions
 import Foundation
 
 protocol HomeBusinessLogic: AnyObject {
@@ -34,7 +35,8 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                                 .init(
                                     id: $0.id,
                                     artistName: $0.name,
-                                    image: $0.artworkUrl100
+                                    image: $0.artworkUrl100,
+                                    isFavorite: (self?.isBookfavorite(with: ($0.id).stringValue)).falseValue
                                 )
                             }
                         )
@@ -61,8 +63,10 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     func addOrDeleteBookToFavoriteBookList(with id: String) {
         if isBookfavorite(with: id) {
             deleteBookToFavorite(with: id)
+            refreshList(at: id, isFavorite: true)
         } else {
             addBookToFavorite(with: id)
+            refreshList(at: id)
         }
     }
 
@@ -87,5 +91,37 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     func deleteBookToFavorite(with id: String) {
         LocalStorageManager.shared.deleteBook(withId: id)
         print("Favoriden cıkartıldı")
+    }
+
+    func refreshList(at id: String, isFavorite: Bool = false) {
+        guard let index = findBookIndex(at: id) else { return }
+        presenter?.presentFavoriteBook(
+            response: Home.FetchFavoriteBook.Response(
+                books: books?.results.compactMap {
+                    .init(
+                        id: $0.id,
+                        artistName: $0.name,
+                        image: $0.artworkUrl100,
+                        isFavorite: isBookfavorite(with: ($0.id).stringValue)
+                    )
+                } ?? [],
+                indexPath: index
+            )
+        )
+    }
+
+    /// Finds the indexes of the updated item with the provided item ID.
+    /// - Parameter itemId: The ID of the item to find.
+    /// - Returns: An array of index paths for the updated item, or nil if not found.
+    func findBookIndex(at id: String) -> [IndexPath]? {
+        var itemIndexes: [IndexPath] = []
+        guard let itemIndex = books?.results.firstIndex(where: { $0.id == id }) else { return nil }
+        // Create an IndexPath for the item (in section 0) and append to itemIndexes
+        let indexPath = IndexPath(item: itemIndex, section: 0)
+        itemIndexes.append(indexPath)
+
+        // Return nil if no indexes were found, otherwise return the indexes
+        guard itemIndexes.count != 0 else { return nil }
+        return itemIndexes
     }
 }
