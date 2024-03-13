@@ -45,6 +45,9 @@
                                 <state key="normal" image="star.fill" catalog="system">
                                     <color key="titleColor" red="0.41176474089999998" green="0.4352940917" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitfavorite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7el-yi-2VX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
@@ -77,6 +80,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bookTitleLabel" destination="tJf-eo-BpL" id="vib-td-AoF"/>
+                <outlet property="favoriteButton" destination="JkR-hI-aiJ" id="75S-m2-Udi"/>
                 <outlet property="imageView" destination="rlL-Oc-gU5" id="c2i-7G-k6v"/>
             </connections>
             <point key="canvasLocation" x="335.87786259541986" y="110.91549295774648"/>
