@@ -50,6 +50,12 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
+            style: .done,
+            target: self,
+            action: #selector(submitFilterButton)
+        )
         title = "Ana Sayfa"
         collectionView.register(BookCell.self, in: .main)
         interactor?.fetchBooks()
@@ -63,6 +69,14 @@ final class HomeViewController: UIViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func submitFilterButton() {
+        router?.routeToSort()
+    }
+
+    func fetcSortedList(_ sort: Home.Sort) {
+        interactor?.fechSortedList(sort)
     }
 }
 
