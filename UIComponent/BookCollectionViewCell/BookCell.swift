@@ -14,7 +14,7 @@ protocol BookCellDelegate: AnyObject {
 class BookCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var bookTitleLabel: UILabel!
-    @IBOutlet var favoriteButton: UIButton!
+    @IBOutlet var favoriteView: FavoriteView!
 
     weak var delegate: BookCellDelegate?
     var cellModel: BookCellModel?
@@ -26,17 +26,20 @@ class BookCell: UICollectionViewCell {
     func setUpCell(model: BookCellModel?) {
         guard let model else { return }
         cellModel = model
+        favoriteView.delegate = self
+        favoriteView.id = model.id
         imageView.load(url: URL(string: model.image!)!)
         bookTitleLabel.text = model.artistName
-        favoriteButton.tintColor = model.isFavorite ? .yellow : .darkGray
     }
 
     override func prepareForReuse() {
         imageView.image = nil
         bookTitleLabel.text = nil
     }
+}
 
-    @IBAction func submitfavorite(_: Any) {
+extension BookCell: FavoriteViewDelegate {
+    func didChangeFavoriteStatus(at _: String) {
         guard let cellModel else { return }
         delegate?.didSubmitFavoriteButton(at: cellModel)
     }

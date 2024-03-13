@@ -53,6 +53,16 @@ final class HomeViewController: UIViewController {
         title = "Ana Sayfa"
         collectionView.register(BookCell.self, in: .main)
         interactor?.fetchBooks()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(listenFunc),
+            name: Notification.Name("changedFavoriteStatus"),
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -93,7 +103,6 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let model = books?[indexPath.item] else { return UICollectionViewCell() }
         let cell = collectionView.dequeueCell(type: BookCell.self, indexPath: indexPath)
         cell.setUpCell(model: .init(model: model))
-        cell.delegate = self
         return cell
     }
 }
@@ -114,11 +123,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: BookCellDelegate
-
-extension HomeViewController: BookCellDelegate {
-    func didSubmitFavoriteButton(at cellmodel: BookCellModel) {
-        guard let id = cellmodel.id else { return }
+extension HomeViewController {
+    @objc func listenFunc(_ notification: Notification) {
+        guard let id = notification.object as? String else { return }
         interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }
 }

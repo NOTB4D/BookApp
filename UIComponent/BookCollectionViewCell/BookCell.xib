@@ -35,32 +35,26 @@
                                     <constraint firstAttribute="height" constant="200" placeholder="YES" id="hbq-Db-7lx"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkR-hI-aiJ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezK-aD-W5C" customClass="FavoriteView" customModule="BookApp" customModuleProvider="target">
                                 <rect key="frame" x="322" y="0.0" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Rfo-tF-hPB"/>
-                                    <constraint firstAttribute="width" constant="40" id="iKY-Zj-ai3"/>
+                                    <constraint firstAttribute="height" constant="40" id="PNw-zP-OcB"/>
+                                    <constraint firstAttribute="width" constant="40" id="c66-AZ-5GF"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="star.fill" catalog="system">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitfavorite:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7el-yi-2VX"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tJf-eo-BpL" secondAttribute="trailing" constant="8" id="28b-vg-f13"/>
                             <constraint firstAttribute="trailing" secondItem="rlL-Oc-gU5" secondAttribute="trailing" id="57g-5z-rc1"/>
-                            <constraint firstItem="JkR-hI-aiJ" firstAttribute="top" secondItem="AbD-Wy-bLy" secondAttribute="top" id="9nz-X0-PUh"/>
+                            <constraint firstItem="ezK-aD-W5C" firstAttribute="top" secondItem="AbD-Wy-bLy" secondAttribute="top" id="8yL-UD-nhl"/>
                             <constraint firstItem="rlL-Oc-gU5" firstAttribute="top" secondItem="AbD-Wy-bLy" secondAttribute="top" id="D3R-cL-g4k"/>
                             <constraint firstItem="tJf-eo-BpL" firstAttribute="top" secondItem="rlL-Oc-gU5" secondAttribute="bottom" id="FOb-Hp-afS"/>
                             <constraint firstAttribute="bottom" secondItem="tJf-eo-BpL" secondAttribute="bottom" id="YLD-1X-Jz7"/>
                             <constraint firstItem="rlL-Oc-gU5" firstAttribute="leading" secondItem="AbD-Wy-bLy" secondAttribute="leading" id="ZNx-WQ-wQ8"/>
+                            <constraint firstAttribute="trailing" secondItem="ezK-aD-W5C" secondAttribute="trailing" id="aGc-4D-ppv"/>
                             <constraint firstItem="tJf-eo-BpL" firstAttribute="leading" secondItem="AbD-Wy-bLy" secondAttribute="leading" constant="8" id="jTf-G0-Q9f"/>
-                            <constraint firstAttribute="trailing" secondItem="JkR-hI-aiJ" secondAttribute="trailing" id="rVh-b4-q78"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -80,14 +74,13 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bookTitleLabel" destination="tJf-eo-BpL" id="vib-td-AoF"/>
-                <outlet property="favoriteButton" destination="JkR-hI-aiJ" id="75S-m2-Udi"/>
+                <outlet property="favoriteView" destination="ezK-aD-W5C" id="PNz-hb-Tex"/>
                 <outlet property="imageView" destination="rlL-Oc-gU5" id="c2i-7G-k6v"/>
             </connections>
             <point key="canvasLocation" x="335.87786259541986" y="110.91549295774648"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemGrayColor">
             <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
