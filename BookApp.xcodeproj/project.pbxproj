@@ -64,6 +64,8 @@
 		B8A9C46E2BA1BDB90099A2A8 /* FavoriteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4662BA1BDB90099A2A8 /* FavoriteModels.swift */; };
 		B8A9C46F2BA1BDB90099A2A8 /* FavoriteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4672BA1BDB90099A2A8 /* FavoriteWorker.swift */; };
 		B8A9C4702BA1BDB90099A2A8 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4682BA1BDB90099A2A8 /* FavoriteRouter.swift */; };
+		B8A9C4792BA1DCF20099A2A8 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4782BA1DCF20099A2A8 /* FavoriteView.swift */; };
+		B8A9C47B2BA1DD720099A2A8 /* FavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A9C47A2BA1DD720099A2A8 /* FavoriteView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,8 @@
 		B8A9C4662BA1BDB90099A2A8 /* FavoriteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModels.swift; sourceTree = "<group>"; };
 		B8A9C4672BA1BDB90099A2A8 /* FavoriteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWorker.swift; sourceTree = "<group>"; };
 		B8A9C4682BA1BDB90099A2A8 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		B8A9C4782BA1DCF20099A2A8 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		B8A9C47A2BA1DD720099A2A8 /* FavoriteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,9 +425,19 @@
 		B8A9C4742BA1D0760099A2A8 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B8A9C4752BA1DCC50099A2A8 /* FavoriteView */,
 				B8A9C43A2BA07C8B0099A2A8 /* BookCollectionViewCell */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		B8A9C4752BA1DCC50099A2A8 /* FavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+				B8A9C4782BA1DCF20099A2A8 /* FavoriteView.swift */,
+				B8A9C47A2BA1DD720099A2A8 /* FavoriteView.xib */,
+			);
+			path = FavoriteView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,6 +557,7 @@
 				B8A9C41D2B9F88CE0099A2A8 /* MainTabBar.storyboard in Resources */,
 				B87BAB1A2B9F2DE300EEEA9F /* Base in Resources */,
 				B87BAB152B9F2DE200EEEA9F /* Base in Resources */,
+				B8A9C47B2BA1DD720099A2A8 /* FavoriteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +604,7 @@
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
 				B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */,
 				B8A9C4492BA092FC0099A2A8 /* BookDetailSUIP.swift in Sources */,
+				B8A9C4792BA1DCF20099A2A8 /* FavoriteView.swift in Sources */,
 				B8A9C4562BA0FE260099A2A8 /* BookCoreData.xcdatamodeld in Sources */,
 				B8A9C44A2BA092FC0099A2A8 /* BookDetailViewController.swift in Sources */,
 				B8A9C44B2BA092FC0099A2A8 /* BookDetailPresenter.swift in Sources */,

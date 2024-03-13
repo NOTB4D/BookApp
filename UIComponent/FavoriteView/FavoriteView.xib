@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteView" customModule="BookApp" customModuleProvider="target">
+            <connections>
+                <outlet property="favoriteButton" destination="Lm7-L9-bjf" id="eSi-kP-Pl5"/>
+                <outlet property="view" destination="iN0-l3-epB" id="cpi-h0-2np"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="57" height="68"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-L9-bjf">
+                    <rect key="frame" x="0.0" y="0.0" width="57" height="68"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="star.fill" catalog="system"/>
+                    <connections>
+                        <action selector="submitFavoriteButton:" destination="-1" eventType="touchUpInside" id="ow5-m7-MOC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Lm7-L9-bjf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0QW-BV-EKi"/>
+                <constraint firstAttribute="bottom" secondItem="Lm7-L9-bjf" secondAttribute="bottom" id="Mk6-BG-ETD"/>
+                <constraint firstAttribute="trailing" secondItem="Lm7-L9-bjf" secondAttribute="trailing" id="PhE-7F-PZ1"/>
+                <constraint firstItem="Lm7-L9-bjf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XAT-bq-gxp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-125.95419847328243" y="-289.43661971830988"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+    </resources>
+</document>
