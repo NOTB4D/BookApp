@@ -11,6 +11,7 @@ import UIKit
 protocol HomeDisplayLogic: AnyObject {
     func displayBooks(viewModel: Home.FetchBooks.ViewModel)
     func displayBook(viewModel: Home.FetchBook.ViewModel)
+    func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -18,7 +19,7 @@ final class HomeViewController: UIViewController {
 
     var interactor: HomeBusinessLogic?
     var router: (HomeRoutingLogic & HomeDataPassing)?
-    var books: Home.FetchBooks.ViewModel?
+    var books: [Home.Book]?
 
     // MARK: Object lifecycle
 
@@ -59,12 +60,17 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeDisplayLogic {
     func displayBooks(viewModel: Home.FetchBooks.ViewModel) {
-        books = viewModel
+        books = viewModel.books
         collectionView.reloadData()
     }
 
     func displayBook(viewModel: Home.FetchBook.ViewModel) {
         router?.routeToBookDetail(viewModel: viewModel)
+    }
+
+    func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel) {
+        books = viewModel.books
+        collectionView.reloadItems(at: viewModel.indexPath)
     }
 }
 
@@ -80,13 +86,14 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        books?.books.count ?? .zero
+        books?.count ?? .zero
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let model = books?.books[indexPath.item] else { return UICollectionViewCell() }
+        guard let model = books?[indexPath.item] else { return UICollectionViewCell() }
         let cell = collectionView.dequeueCell(type: BookCell.self, indexPath: indexPath)
         cell.setUpCell(model: model)
+        cell.delegate = self
         return cell
     }
 }
@@ -104,5 +111,14 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat {
         20
+    }
+}
+
+// MARK: BookCellDelegate
+
+extension HomeViewController: BookCellDelegate {
+    func didSubmitFavoriteButton(at cellmodel: Home.Book) {
+        guard let id = cellmodel.id else { return }
+        interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }
 }
