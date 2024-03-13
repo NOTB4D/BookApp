@@ -13,6 +13,7 @@ protocol HomeBusinessLogic: AnyObject {
     func fetchBook(request: Home.FetchBook.Request)
     func addOrDeleteBookToFavoriteBookList(with id: String)
     func fetcBooksNextPage()
+    func fechSortedList(_ sort: Home.Sort)
 }
 
 protocol HomeDataStore: AnyObject {}
@@ -23,9 +24,25 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var isLoading: Bool = false
     var currentPage: Int = 0
     var books: [Books]?
+    var sorted: Home.Sort = .all
 
     func fetchBooks() {
         fetchBooksList()
+    }
+
+    fileprivate func presentBookList(with books: [Books]?) {
+        presenter?.presentBooks(
+            response: Home.FetchBooks.Response(
+                books: books?.compactMap {
+                    .init(
+                        id: $0.id,
+                        artistName: $0.name,
+                        image: $0.artworkUrl100,
+                        isFavorite: isBookfavorite(with: ($0.id).stringValue)
+                    )
+                } ?? []
+            )
+        )
     }
 
     func fetchBooksList(at page: Int = AppConstants.Home.paginationSize) {
@@ -38,18 +55,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                 case let .success(response):
                     self?.books = response.results
                     self?.currentPage += AppConstants.Home.paginationSize
-                    self?.presenter?.presentBooks(
-                        response: Home.FetchBooks.Response(
-                            books: self?.books?.compactMap {
-                                .init(
-                                    id: $0.id,
-                                    artistName: $0.name,
-                                    image: $0.artworkUrl100,
-                                    isFavorite: (self?.isBookfavorite(with: ($0.id).stringValue)).falseValue
-                                )
-                            } ?? []
-                        )
-                    )
+                    self?.fechSortedList(self?.sorted ?? .all)
                 case let .failure(error):
                     print(error)
                 }
@@ -58,7 +64,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     }
 
     func fetcBooksNextPage() {
-        if !isLoading {
+        if !isLoading, sorted != .favorites {
             fetchBooksList(at: currentPage)
         }
     }
@@ -75,6 +81,31 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                 isFavorite: isBookfavorite(with: (model.id).stringValue)
             )
         )
+    }
+
+    func fechSortedList(_ sort: Home.Sort) {
+        sorted = sort
+        switch sorted {
+        case .all:
+            presentBookList(with: books)
+        case .newToOld:
+            books = books?.sorted { $0.releaseDate! > $1.releaseDate! }
+            presentBookList(with: books)
+        case .oldToNew:
+            books = books?.sorted { $0.releaseDate! < $1.releaseDate! }
+            presentBookList(with: books)
+        case .favorites:
+            let tempData = LocalStorageManager.shared.fetchBooks()
+            presentBookList(with: tempData?.map {
+                Books(
+                    artistName: $0.authorName,
+                    id: $0.id,
+                    name: $0.name,
+                    releaseDate: $0.publishDate,
+                    artworkUrl100: $0.image
+                )
+            })
+        }
     }
 
     func addOrDeleteBookToFavoriteBookList(with id: String) {

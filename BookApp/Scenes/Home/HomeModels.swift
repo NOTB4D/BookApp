@@ -66,6 +66,13 @@ enum Home {
             let indexPath: [IndexPath]
         }
     }
+
+    enum Sort {
+        case all
+        case newToOld
+        case oldToNew
+        case favorites
+    }
 }
 
 extension Home.FetchBook.ViewModel {
