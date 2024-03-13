@@ -51,6 +51,7 @@
 		B8A9C44E2BA092FC0099A2A8 /* BookDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4462BA092FC0099A2A8 /* BookDetailWorker.swift */; };
 		B8A9C44F2BA092FC0099A2A8 /* BookDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4472BA092FC0099A2A8 /* BookDetailRouter.swift */; };
 		B8A9C4562BA0FE260099A2A8 /* BookCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4542BA0FE260099A2A8 /* BookCoreData.xcdatamodeld */; };
+		B8A9C45E2BA17B170099A2A8 /* LocalStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A9C4522BA0FB650099A2A8 /* LocalStorageManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		B8A9C4452BA092FC0099A2A8 /* BookDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailModels.swift; sourceTree = "<group>"; };
 		B8A9C4462BA092FC0099A2A8 /* BookDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailWorker.swift; sourceTree = "<group>"; };
 		B8A9C4472BA092FC0099A2A8 /* BookDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailRouter.swift; sourceTree = "<group>"; };
+		B8A9C4522BA0FB650099A2A8 /* LocalStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManagerProtocol.swift; sourceTree = "<group>"; };
 		B8A9C4552BA0FE260099A2A8 /* BookCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -347,6 +349,7 @@
 			sourceTree = "<group>";
 		};
 				B8A9C4532BA0FC4C0099A2A8 /* CoreData */,
+				B8A9C4522BA0FB650099A2A8 /* LocalStorageManagerProtocol.swift */,
 				B8A9C4542BA0FE260099A2A8 /* BookCoreData.xcdatamodeld */,
 /* End PBXGroup section */
 
@@ -496,6 +499,7 @@
 				B87BAB472B9F32BE00EEEA9F /* NSError.swift in Sources */,
 				B87BAB532B9F34E400EEEA9F /* URL+Extension.swift in Sources */,
 				B87BAB442B9F329300EEEA9F /* NetworkContentType.swift in Sources */,
+				B8A9C45E2BA17B170099A2A8 /* LocalStorageManagerProtocol.swift in Sources */,
 				B87BAB3F2B9F301E00EEEA9F /* Networkable.swift in Sources */,
 				B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
