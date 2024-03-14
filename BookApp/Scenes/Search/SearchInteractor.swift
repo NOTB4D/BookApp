@@ -10,6 +10,7 @@ import Foundation
 protocol SearchBusinessLogic: AnyObject {
     func fetchBookList()
     func searchBook(request: Search.FetchFilteredBooks.Request)
+    func fetcBook(request: Search.FetchBookDetail.Request)
 }
 
 protocol SearchDataStore: AnyObject {}
@@ -113,5 +114,19 @@ final class SearchInteractor: SearchBusinessLogic, SearchDataStore {
             return filter(models: tempModels, categori: filterByCategori)
         }
         return filter(models: models, categori: filterByCategori)
+    }
+
+    func fetcBook(request: Search.FetchBookDetail.Request) {
+        guard let book = books?.first(where: { $0.id == request.bookId }) else { return }
+        presenter?.presentBook(
+            response: Search.FetchBookDetail.Response(
+                id: book.id,
+                artistName: book.artistName,
+                name: book.name,
+                releaseDate: book.releaseDate,
+                image: book.artworkUrl100,
+                isFavorite: LocalStorageManager.shared.fetchBook(withId: request.bookId) != nil
+            )
+        )
     }
 }

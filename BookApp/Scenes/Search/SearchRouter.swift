@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-protocol SearchRoutingLogic: AnyObject {}
+protocol SearchRoutingLogic: AnyObject {
+    func routeToBookDetail(viewModel: Search.FetchBookDetail.ViewModel)
+}
 
 protocol SearchDataPassing: AnyObject {
     var dataStore: SearchDataStore? { get }
@@ -16,4 +19,11 @@ protocol SearchDataPassing: AnyObject {
 final class SearchRouter: SearchRoutingLogic, SearchDataPassing {
     weak var viewController: SearchViewController?
     var dataStore: SearchDataStore?
+
+    func routeToBookDetail(viewModel: Search.FetchBookDetail.ViewModel) {
+        guard let viewController else { return }
+        let detailViewController: BookDetailViewController = UIApplication.getViewController()
+        detailViewController.router?.dataStore?.book = viewModel.getBookDetailModel()
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol SearchDisplayLogic: AnyObject {
     func displayCategories(viewModel: Search.FetchCategories.ViewModel)
     func displayBookList(viewModel: Search.FetchFilteredBooks.ViewModel)
+    func displayBook(viewModel: Search.FetchBookDetail.ViewModel)
 }
 
 final class SearchViewController: UIViewController {
@@ -88,13 +89,18 @@ extension SearchViewController: SearchDisplayLogic {
         books = viewModel.books
         tableView.reloadData()
     }
+
+    func displayBook(viewModel: Search.FetchBookDetail.ViewModel) {
+        router?.routeToBookDetail(viewModel: viewModel)
+    }
 }
 
 // MARK: UITableViewDelegate
 
 extension SearchViewController: UITableViewDelegate {
-    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
-        //
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let id = books[indexPath.row].id else { return }
+        interactor?.fetcBook(request: .init(bookId: id))
     }
 }
 
