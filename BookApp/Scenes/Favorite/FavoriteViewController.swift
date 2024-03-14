@@ -125,11 +125,3 @@ extension FavoriteViewController: BookCellDelegate {
         interactor?.deleteBookToFavoriteBookList(with: id)
     }
 }
-
-// MARK: BookDetailViewControllerDelegate
-
-extension FavoriteViewController: BookDetailViewControllerDelegate {
-    func didFavoriteStatusChanged(at id: String) {
-        interactor?.addOrDeleteBookToFavoriteBookList(with: id)
-    }
-}
