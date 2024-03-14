@@ -12,7 +12,7 @@
         <!--Search View Controller-->
         <scene sceneID="D3m-6j-bBI">
             <objects>
-                <viewController id="nxe-uw-h5I" customClass="SearchViewController" customModule="BookApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="nxe-uw-h5I" customClass="SearchViewController" customModule="BookApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="chM-je-gA4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

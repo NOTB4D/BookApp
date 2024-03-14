@@ -1,0 +1,373 @@
+{
+  "feed": {
+    "title": "Top Free",
+    "id": "https://rss.applemarketingtools.com/api/v2/us/books/top-free/10/books.json",
+    "author": {
+      "name": "Apple",
+      "url": "https://www.apple.com/"
+    },
+    "links": [
+      {
+        "self": "https://rss.applemarketingtools.com/api/v2/us/books/top-free/10/books.json"
+      }
+    ],
+    "copyright": "Copyright © 2024 Apple Inc. All rights reserved.",
+    "country": "us",
+    "icon": "https://www.apple.com/favicon.ico",
+    "updated": "Thu, 14 Mar 2024 11:06:35 +0000",
+    "results": [
+      {
+        "artistName": "Amy Knupp",
+        "id": "1243513623",
+        "name": "Last First Kiss",
+        "releaseDate": "2017-07-18",
+        "kind": "books",
+        "artistId": "383835159",
+        "artistUrl": "https://books.apple.com/us/author/amy-knupp/id383835159",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication116/v4/6d/28/9a/6d289a11-dbfd-9ce7-186e-9a4d6cf8a105/Last-First-Kiss-Apple.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "10057",
+            "name": "Contemporary Romance",
+            "url": "https://itunes.apple.com/us/genre/id10057"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/last-first-kiss/id1243513623"
+      },
+      {
+        "artistName": "Vanessa Vale",
+        "id": "6444683972",
+        "name": "Man Hunt",
+        "releaseDate": "2022-12-27",
+        "kind": "books",
+        "artistId": "946130281",
+        "artistUrl": "https://books.apple.com/us/author/vanessa-vale/id946130281",
+        "contentAdvisoryRating": "Explict",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication112/v4/6d/2b/ae/6d2baeb6-b0ab-d8d2-dad3-a953111e205e/Manhunt_72_1600x2400.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "10057",
+            "name": "Contemporary Romance",
+            "url": "https://itunes.apple.com/us/genre/id10057"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          },
+          {
+            "genreId": "11040",
+            "name": "New Adult Romance",
+            "url": "https://itunes.apple.com/us/genre/id11040"
+          },
+          {
+            "genreId": "10062",
+            "name": "Western Romance",
+            "url": "https://itunes.apple.com/us/genre/id10062"
+          },
+          {
+            "genreId": "11042",
+            "name": "Romantic Comedies",
+            "url": "https://itunes.apple.com/us/genre/id11042"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/man-hunt/id6444683972"
+      },
+      {
+        "artistName": "Pamela Fagan Hutchins",
+        "id": "6471596274",
+        "name": "Saving Grace (A Katie Connell Caribbean Mystery)",
+        "releaseDate": "2012-11-03",
+        "kind": "books",
+        "artistId": "528793408",
+        "artistUrl": "https://books.apple.com/us/author/pamela-fagan-hutchins/id528793408",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/7c/86/e4/7c86e47a-820d-6aae-1aa6-5f1b87d019c4/0000174197.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "9032",
+            "name": "Mysteries & Thrillers",
+            "url": "https://itunes.apple.com/us/genre/id9032"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "11259",
+            "name": "Cozy Mysteries",
+            "url": "https://itunes.apple.com/us/genre/id11259"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          },
+          {
+            "genreId": "10061",
+            "name": "Romantic Suspense",
+            "url": "https://itunes.apple.com/us/genre/id10061"
+          },
+          {
+            "genreId": "10055",
+            "name": "Women Sleuths",
+            "url": "https://itunes.apple.com/us/genre/id10055"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/saving-grace-a-katie-connell-caribbean-mystery/id6471596274"
+      },
+      {
+        "artistName": "Adrian Gabriel Dumitru",
+        "id": "6479133257",
+        "name": "LIFE … seen as a concentration camp",
+        "releaseDate": "2024-03-07",
+        "kind": "books",
+        "artistId": "1687069772",
+        "artistUrl": "https://books.apple.com/us/author/adrian-gabriel-dumitru/id1687069772",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication112/v4/40/d9/3a/40d93ac7-bd29-e7d7-75df-d3b461c93f44/coperta.png/100x156bb.png",
+        "genres": [
+          {
+            "genreId": "10004",
+            "name": "Spirituality",
+            "url": "https://itunes.apple.com/us/genre/id10004"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9025",
+            "name": "Health, Mind & Body",
+            "url": "https://itunes.apple.com/us/genre/id9025"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/life-seen-as-a-concentration-camp/id6479133257"
+      },
+      {
+        "artistName": "Camilla Isley",
+        "id": "6478438889",
+        "name": "Friend Zone",
+        "releaseDate": "2024-02-24",
+        "kind": "books",
+        "artistId": "1014725770",
+        "artistUrl": "https://books.apple.com/us/author/camilla-isley/id1014725770",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication112/v4/f0/b1/6d/f0b16d10-ce79-d678-e6b0-32c989f6ab08/07234df5-abce-4f71-9432-2261ff28159c_cover_image.png/100x155bb.png",
+        "genres": [
+          {
+            "genreId": "11040",
+            "name": "New Adult Romance",
+            "url": "https://itunes.apple.com/us/genre/id11040"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          },
+          {
+            "genreId": "11042",
+            "name": "Romantic Comedies",
+            "url": "https://itunes.apple.com/us/genre/id11042"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/friend-zone/id6478438889"
+      },
+      {
+        "artistName": "Jenna Jacob",
+        "id": "1482000391",
+        "name": "Rock Me Longer",
+        "releaseDate": "2019-11-19",
+        "kind": "books",
+        "artistId": "576150945",
+        "artistUrl": "https://books.apple.com/us/author/jenna-jacob/id576150945",
+        "contentAdvisoryRating": "Explict",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication124/v4/2b/81/44/2b8144b2-6e31-85b8-6cb8-3253258c86e1/Rock_Me_Longer_iBook_Resize.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "10057",
+            "name": "Contemporary Romance",
+            "url": "https://itunes.apple.com/us/genre/id10057"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/rock-me-longer/id1482000391"
+      },
+      {
+        "artistName": "Molly Black",
+        "id": "6449117170",
+        "name": "Somewhere Safe (A Piper Woods FBI Suspense Thriller—Book One)",
+        "releaseDate": "2023-06-27",
+        "kind": "books",
+        "artistId": "1477753815",
+        "artistUrl": "https://books.apple.com/us/author/molly-black/id1477753815",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication126/v4/1b/4c/0e/1b4c0e6a-f38f-053d-ff37-770a72429138/9781094378893.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "10055",
+            "name": "Women Sleuths",
+            "url": "https://itunes.apple.com/us/genre/id10055"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9032",
+            "name": "Mysteries & Thrillers",
+            "url": "https://itunes.apple.com/us/genre/id9032"
+          },
+          {
+            "genreId": "10052",
+            "name": "Police Procedural",
+            "url": "https://itunes.apple.com/us/genre/id10052"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/somewhere-safe-a-piper-woods-fbi-suspense-thriller-book-one/id6449117170"
+      },
+      {
+        "artistName": "W.J. May",
+        "id": "1327379684",
+        "name": "Eternal",
+        "releaseDate": "2018-01-15",
+        "kind": "books",
+        "artistId": "476365000",
+        "artistUrl": "https://books.apple.com/us/author/w-j-may/id476365000",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication112/v4/70/fa/a3/70faa366-9970-ff0c-5c5c-b56a117f505b/0000292083.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "11004",
+            "name": "Paranormal Fantasy",
+            "url": "https://itunes.apple.com/us/genre/id11004"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9020",
+            "name": "Sci-Fi & Fantasy",
+            "url": "https://itunes.apple.com/us/genre/id9020"
+          },
+          {
+            "genreId": "10044",
+            "name": "Fantasy",
+            "url": "https://itunes.apple.com/us/genre/id10044"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          },
+          {
+            "genreId": "10058",
+            "name": "Paranormal Romance",
+            "url": "https://itunes.apple.com/us/genre/id10058"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/eternal/id1327379684"
+      },
+      {
+        "artistName": "Elena Aitken",
+        "id": "1516698809",
+        "name": "Fighting Happily Ever After",
+        "releaseDate": "2020-08-18",
+        "kind": "books",
+        "artistId": "453285610",
+        "artistUrl": "https://books.apple.com/us/author/elena-aitken/id453285610",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication113/v4/84/c2/c9/84c2c9e7-1953-c424-1e6d-2a85b6d08d0e/Fighting-Happily-Ever-After-Apple.jpg/100x150bb.png",
+        "genres": [
+          {
+            "genreId": "10057",
+            "name": "Contemporary Romance",
+            "url": "https://itunes.apple.com/us/genre/id10057"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          },
+          {
+            "genreId": "11231",
+            "name": "Holiday Romance",
+            "url": "https://itunes.apple.com/us/genre/id11231"
+          },
+          {
+            "genreId": "9031",
+            "name": "Fiction & Literature",
+            "url": "https://itunes.apple.com/us/genre/id9031"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/fighting-happily-ever-after/id1516698809"
+      },
+      {
+        "artistName": "Theresa Paolo",
+        "id": "1569085494",
+        "name": "Childhood Dream",
+        "releaseDate": "2021-06-29",
+        "kind": "books",
+        "artistId": "636771654",
+        "artistUrl": "https://books.apple.com/us/author/theresa-paolo/id636771654",
+        "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Publication112/v4/ae/fe/0a/aefe0a0b-ad0b-005f-57c2-fcb37166d718/9781005624378.jpg/100x158bb.png",
+        "genres": [
+          {
+            "genreId": "10057",
+            "name": "Contemporary Romance",
+            "url": "https://itunes.apple.com/us/genre/id10057"
+          },
+          {
+            "genreId": "38",
+            "name": "Books",
+            "url": "https://itunes.apple.com/us/genre/id38"
+          },
+          {
+            "genreId": "9003",
+            "name": "Romance",
+            "url": "https://itunes.apple.com/us/genre/id9003"
+          },
+          {
+            "genreId": "11040",
+            "name": "New Adult Romance",
+            "url": "https://itunes.apple.com/us/genre/id11040"
+          }
+        ],
+        "url": "https://books.apple.com/us/book/childhood-dream/id1569085494"
+      }
+    ]
+  }
+}

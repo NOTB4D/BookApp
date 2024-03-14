@@ -18,8 +18,12 @@ enum UnitTestStubs {
         switch result {
         case let .success(data):
             do {
-                let response = try JSONDecoder().decode(V.self, from: data)
-                return .success(response)
+                let response = try JSONDecoder().decode(Response<V>.self, from: data)
+                if let body = response.feed {
+                    return .success(body)
+                } else {
+                    return .failure(NSError.withLocalizedInfo(response.error ?? "Somehing on the way..."))
+                }
             } catch {
                 return .failure(NSError(domain: "decoding error", code: -333))
             }
