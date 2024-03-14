@@ -24,10 +24,13 @@ public extension UITabBarController {
         let itemAppearance = appearance.inlineLayoutAppearance
         itemAppearance.normal.titleTextAttributes = normalTextAttributes
         itemAppearance.selected.titleTextAttributes = selectedTextAttributes
+
+        itemAppearance.normal.iconColor = .secondaryLabel
+        itemAppearance.selected.iconColor = .brown
         appearance.inlineLayoutAppearance = itemAppearance
         appearance.compactInlineLayoutAppearance = itemAppearance
         appearance.stackedLayoutAppearance = itemAppearance
-        appearance.backgroundColor = .darkGray
+        appearance.backgroundColor = .lightGray
 
         return appearance
     }
