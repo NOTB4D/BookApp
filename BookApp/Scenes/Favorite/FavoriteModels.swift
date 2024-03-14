@@ -57,12 +57,10 @@ enum Favorite {
 
         struct Response {
             let books: [Book]
-            let indexPath: [IndexPath]
         }
 
         struct ViewModel {
             let books: [Book]
-            let indexPath: [IndexPath]
         }
     }
 }
