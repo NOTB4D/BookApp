@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8F65ABF6-8805-4721-8DF4-B79B86D730A9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:BookApp.xcodeproj",
+        "identifier" : "B87BAB1F2B9F2DE300EEEA9F",
+        "name" : "BookAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}
