@@ -17,6 +17,8 @@
 		B8698BDB2BA22C7A00CB56CE /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BD42BA22C7A00CB56CE /* SearchRouter.swift */; };
 		B8698BDC2BA22C7A00CB56CE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8698BCE2BA22C7A00CB56CE /* Search.storyboard */; };
 		B8698BDF2BA2D5F000CB56CE /* BPickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BDE2BA2D5F000CB56CE /* BPickerTextField.swift */; };
+		B8698BE22BA2E03300CB56CE /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BE02BA2E03300CB56CE /* BookTableViewCell.swift */; };
+		B8698BE32BA2E03300CB56CE /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8698BE12BA2E03300CB56CE /* BookTableViewCell.xib */; };
 		B87BAB0E2B9F2DE200EEEA9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB0D2B9F2DE200EEEA9F /* AppDelegate.swift */; };
 		B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB0F2B9F2DE200EEEA9F /* SceneDelegate.swift */; };
 		B87BAB122B9F2DE200EEEA9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB112B9F2DE200EEEA9F /* ViewController.swift */; };
@@ -106,6 +108,8 @@
 		B8698BD32BA22C7A00CB56CE /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		B8698BD42BA22C7A00CB56CE /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		B8698BDE2BA2D5F000CB56CE /* BPickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPickerTextField.swift; sourceTree = "<group>"; };
+		B8698BE02BA2E03300CB56CE /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		B8698BE12BA2E03300CB56CE /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		B87BAB0A2B9F2DE200EEEA9F /* BookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87BAB0D2B9F2DE200EEEA9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B87BAB0F2B9F2DE200EEEA9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 		B8698BCC2BA22C6600CB56CE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				B8698BE42BA2E03B00CB56CE /* View */,
 				B8698BCD2BA22C7A00CB56CE /* SearchSUIP.swift */,
 				B8698BCE2BA22C7A00CB56CE /* Search.storyboard */,
 				B8698BCF2BA22C7A00CB56CE /* SearchViewController.swift */,
@@ -219,6 +224,15 @@
 				B8698BDE2BA2D5F000CB56CE /* BPickerTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		B8698BE42BA2E03B00CB56CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8698BE12BA2E03300CB56CE /* BookTableViewCell.xib */,
+				B8698BE02BA2E03300CB56CE /* BookTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B87BAB012B9F2DE200EEEA9F = {
@@ -602,6 +616,7 @@
 				B8698BDC2BA22C7A00CB56CE /* Search.storyboard in Resources */,
 				B8A9C4482BA092FC0099A2A8 /* BookDetail.storyboard in Resources */,
 				B8A9C41D2B9F88CE0099A2A8 /* MainTabBar.storyboard in Resources */,
+				B8698BE32BA2E03300CB56CE /* BookTableViewCell.xib in Resources */,
 				B87BAB1A2B9F2DE300EEEA9F /* Base in Resources */,
 				B87BAB152B9F2DE200EEEA9F /* Base in Resources */,
 				B8A9C47B2BA1DD720099A2A8 /* FavoriteView.xib in Resources */,
@@ -653,6 +668,7 @@
 				B8698BD52BA22C7A00CB56CE /* SearchSUIP.swift in Sources */,
 				B8698BD62BA22C7A00CB56CE /* SearchViewController.swift in Sources */,
 				B8698BD72BA22C7A00CB56CE /* SearchPresenter.swift in Sources */,
+				B8698BE22BA2E03300CB56CE /* BookTableViewCell.swift in Sources */,
 				B8698BD82BA22C7A00CB56CE /* SearchInteractor.swift in Sources */,
 				B8698BD92BA22C7A00CB56CE /* SearchModels.swift in Sources */,
 				B8698BDA2BA22C7A00CB56CE /* SearchWorker.swift in Sources */,
