@@ -37,9 +37,8 @@ extension MainTabBarViewController: UITabBarControllerDelegate {
 extension MainTabBarViewController {
     func updateUI() {
         tabBar.isHidden = false
-        // will be handled
         viewControllers = [
-            "Home", "Main", "Favorite",
+            "Home", "Search", "Favorite",
         ].compactMap { createTabViewController(in: $0) }
         setTabButton()
 
