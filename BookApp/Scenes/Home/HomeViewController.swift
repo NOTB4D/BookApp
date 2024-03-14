@@ -56,6 +56,7 @@ final class HomeViewController: UIViewController {
             target: self,
             action: #selector(submitFilterButton)
         )
+        navigationItem.rightBarButtonItem?.tintColor = .brown
         title = "Ana Sayfa"
         collectionView.register(BookCell.self, in: .main)
         interactor?.fetchBooks()
