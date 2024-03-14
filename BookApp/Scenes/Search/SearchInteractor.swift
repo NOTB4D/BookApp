@@ -68,4 +68,50 @@ final class SearchInteractor: SearchBusinessLogic, SearchDataStore {
             )
         )
     }
+
+    func searchBook(request: Search.FetchFilteredBooks.Request) {
+        filterRequest = request
+        let filteredBook = filter(models: books ?? [], text: request.text, filterByCategori: request.categori)
+        presentBookList(at: filteredBook)
+    }
+
+    /**
+     Filters the given array of books based on the provided search text and category filter.
+
+     - Parameters:
+        - models: An array of `Books` objects to filter.
+        - text: The search text used to filter the books by their names.
+        - filterByCategory: The category used to filter the books. If set to "All", no filtering by category is applied.
+
+     - Returns: An array of `Books` objects that match the search text and category filter.
+     */
+    private func filter(models: [Books], text: String, filterByCategori: String) -> [Books] {
+        /**
+         Filters the given array of books based on the provided category.
+
+         - Parameters:
+            - models: An array of `Books` objects to filter.
+            - category: The category used to filter the books. If set to "All", no filtering by category is applied.
+
+         - Returns: An array of `Books` objects that match the category filter.
+         */
+        func filter(models: [Books], categori: String) -> [Books] {
+            if categori == "All" {
+                return models
+            } else {
+                let books = models.filter { ($0.genres ?? []).contains(where: { item in
+                    item.name == categori
+                }) }
+                return books
+            }
+        }
+        if !text.isEmpty {
+            let textLowercased = text.lowercased()
+            let tempModels = models.filter { model in
+                (model.name).stringValue.lowercased().contains(textLowercased)
+            }
+            return filter(models: tempModels, categori: filterByCategori)
+        }
+        return filter(models: models, categori: filterByCategori)
+    }
 }

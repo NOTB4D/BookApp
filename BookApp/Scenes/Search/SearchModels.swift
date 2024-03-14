@@ -12,7 +12,7 @@ enum Search {
     enum FetchFilteredBooks {
         struct Request {
             let text: String
-            let categorie: Int
+            let categori: String
         }
 
         struct Response {
@@ -24,6 +24,7 @@ enum Search {
         }
 
         struct Book {
+            let id: String?
             let image: String?
             let bookName: String?
             let authorName: String?
