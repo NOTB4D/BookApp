@@ -33,19 +33,19 @@ final class HomeRouter: HomeRoutingLogic, HomeDataPassing {
         guard let viewController else { return }
         let actionSheet = UIAlertController(title: "Sırala", message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Tümü", style: .default, handler: { [weak self] _ in
-            guard let self else { return }
+            guard self != nil else { return }
             viewController.fetcSortedList(.all)
         }))
         actionSheet.addAction(UIAlertAction(title: "Yeniden eskiye", style: .default, handler: { [weak self] _ in
-            guard let self else { return }
+            guard self != nil else { return }
             viewController.fetcSortedList(.newToOld)
         }))
         actionSheet.addAction(UIAlertAction(title: "Eskiden yeniye", style: .default, handler: { [weak self] _ in
-            guard let self else { return }
+            guard self != nil else { return }
             viewController.fetcSortedList(.oldToNew)
         }))
         actionSheet.addAction(UIAlertAction(title: "Sadece beğenilenler", style: .default, handler: { [weak self] _ in
-            guard let self else { return }
+            guard self != nil else { return }
             viewController.fetcSortedList(.favorites)
         }))
         actionSheet.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
