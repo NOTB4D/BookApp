@@ -75,3 +75,63 @@ final class SearchViewController: UIViewController {
 }
 
 // MARK: SearchDisplayLogic
+
+extension SearchViewController: SearchDisplayLogic {
+    func displayCategories(viewModel: Search.FetchCategories.ViewModel) {
+        categories = viewModel
+        categoriesPicker.reloadInputViews()
+        categoriesPicker.isUserInteractionEnabled = true
+        categoriesPicker.selectedRow = 0
+    }
+
+    func displayBookList(viewModel: Search.FetchFilteredBooks.ViewModel) {
+        books = viewModel.books
+        tableView.reloadData()
+    }
+}
+
+// MARK: UITableViewDelegate
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
+        //
+    }
+}
+
+// MARK: UITableViewDataSource
+
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        books.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueCell(type: BookTableViewCell.self, indexPath: indexPath)
+        cell.setUpCell(with: books[indexPath.row])
+        return cell
+    }
+}
+
+// MARK: BPickerTextFieldDelegate
+
+extension SearchViewController: BPickerTextFieldDelegate {
+    func pickerTextFieldNumberOfRows(_: BPickerTextField) -> Int {
+        categories?.categories.count ?? .zero
+    }
+
+    func pickerTextField(_: BPickerTextField, titleForRow row: Int) -> String? {
+        categories?.categories[row]
+    }
+
+    func pickerTextField(_: BPickerTextField, didSelectRow _: Int) {
+        fetchSearchBook()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+    public func searchBar(_: UISearchBar, textDidChange _: String) {
+        fetchSearchBook()
+    }
+}
