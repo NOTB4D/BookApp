@@ -12,10 +12,6 @@ protocol BookDetailDisplayLogic: AnyObject {
     func displayChangedFavoriteStatus(viewModel: BookDetail.fetchFavoriteStatus.ViewModel)
 }
 
-protocol BookDetailViewControllerDelegate: AnyObject {
-    func didFavoriteStatusChanged(at id: String)
-}
-
 final class BookDetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var BookTitleLabel: UILabel!
@@ -25,7 +21,6 @@ final class BookDetailViewController: UIViewController {
     var interactor: BookDetailBusinessLogic?
     var router: (BookDetailRoutingLogic & BookDetailDataPassing)?
     var starBarButton = UIBarButtonItem()
-    weak var delegate: BookDetailViewControllerDelegate?
 
     // MARK: Object lifecycle
 
@@ -90,6 +85,11 @@ extension BookDetailViewController: BookDetailDisplayLogic {
     func displayChangedFavoriteStatus(viewModel: BookDetail.fetchFavoriteStatus.ViewModel) {
         starBarButton.tintColor = viewModel.isFavorite ? .yellow : .darkGray
         guard let id = viewModel.id else { return }
-        delegate?.didFavoriteStatusChanged(at: id)
+        let notification = Notification(
+            name: Notification.Name("changedFavoriteStatus"),
+            object: id,
+            userInfo: nil
+        )
+        NotificationCenter.default.post(notification)
     }
 }

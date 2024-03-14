@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B8698BCB2BA208D800CB56CE /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BCA2BA2082100CB56CE /* AppConstants.swift */; };
+		B8698BD52BA22C7A00CB56CE /* SearchSUIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BCD2BA22C7A00CB56CE /* SearchSUIP.swift */; };
+		B8698BD62BA22C7A00CB56CE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BCF2BA22C7A00CB56CE /* SearchViewController.swift */; };
+		B8698BD72BA22C7A00CB56CE /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BD02BA22C7A00CB56CE /* SearchPresenter.swift */; };
+		B8698BD82BA22C7A00CB56CE /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BD12BA22C7A00CB56CE /* SearchInteractor.swift */; };
+		B8698BD92BA22C7A00CB56CE /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BD22BA22C7A00CB56CE /* SearchModels.swift */; };
+		B8698BDA2BA22C7A00CB56CE /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BD32BA22C7A00CB56CE /* SearchWorker.swift */; };
+		B8698BDB2BA22C7A00CB56CE /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BD42BA22C7A00CB56CE /* SearchRouter.swift */; };
+		B8698BDC2BA22C7A00CB56CE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8698BCE2BA22C7A00CB56CE /* Search.storyboard */; };
+		B8698BDF2BA2D5F000CB56CE /* BPickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BDE2BA2D5F000CB56CE /* BPickerTextField.swift */; };
+		B8698BE22BA2E03300CB56CE /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8698BE02BA2E03300CB56CE /* BookTableViewCell.swift */; };
+		B8698BE32BA2E03300CB56CE /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8698BE12BA2E03300CB56CE /* BookTableViewCell.xib */; };
 		B87BAB0E2B9F2DE200EEEA9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB0D2B9F2DE200EEEA9F /* AppDelegate.swift */; };
 		B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB0F2B9F2DE200EEEA9F /* SceneDelegate.swift */; };
 		B87BAB122B9F2DE200EEEA9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BAB112B9F2DE200EEEA9F /* ViewController.swift */; };
@@ -88,6 +99,17 @@
 
 /* Begin PBXFileReference section */
 		B8698BCA2BA2082100CB56CE /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		B8698BCD2BA22C7A00CB56CE /* SearchSUIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSUIP.swift; sourceTree = "<group>"; };
+		B8698BCE2BA22C7A00CB56CE /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		B8698BCF2BA22C7A00CB56CE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B8698BD02BA22C7A00CB56CE /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		B8698BD12BA22C7A00CB56CE /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		B8698BD22BA22C7A00CB56CE /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		B8698BD32BA22C7A00CB56CE /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
+		B8698BD42BA22C7A00CB56CE /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		B8698BDE2BA2D5F000CB56CE /* BPickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPickerTextField.swift; sourceTree = "<group>"; };
+		B8698BE02BA2E03300CB56CE /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		B8698BE12BA2E03300CB56CE /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		B87BAB0A2B9F2DE200EEEA9F /* BookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87BAB0D2B9F2DE200EEEA9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B87BAB0F2B9F2DE200EEEA9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +202,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8698BCC2BA22C6600CB56CE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B8698BE42BA2E03B00CB56CE /* View */,
+				B8698BCD2BA22C7A00CB56CE /* SearchSUIP.swift */,
+				B8698BCE2BA22C7A00CB56CE /* Search.storyboard */,
+				B8698BCF2BA22C7A00CB56CE /* SearchViewController.swift */,
+				B8698BD02BA22C7A00CB56CE /* SearchPresenter.swift */,
+				B8698BD12BA22C7A00CB56CE /* SearchInteractor.swift */,
+				B8698BD22BA22C7A00CB56CE /* SearchModels.swift */,
+				B8698BD32BA22C7A00CB56CE /* SearchWorker.swift */,
+				B8698BD42BA22C7A00CB56CE /* SearchRouter.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B8698BDD2BA2D5D700CB56CE /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				B8698BDE2BA2D5F000CB56CE /* BPickerTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		B8698BE42BA2E03B00CB56CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8698BE12BA2E03300CB56CE /* BookTableViewCell.xib */,
+				B8698BE02BA2E03300CB56CE /* BookTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B87BAB012B9F2DE200EEEA9F = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +373,7 @@
 			children = (
 				B8A9C4172B9F88530099A2A8 /* TabBar */,
 				B8A9C4242BA02EAC0099A2A8 /* Home */,
+				B8698BCC2BA22C6600CB56CE /* Search */,
 				B8A9C43F2BA092D80099A2A8 /* BookDetail */,
 				B8A9C4602BA1BD420099A2A8 /* Favorite */,
 			);
@@ -428,6 +484,7 @@
 		B8A9C4742BA1D0760099A2A8 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B8698BDD2BA2D5D700CB56CE /* TextField */,
 				B8A9C4752BA1DCC50099A2A8 /* FavoriteView */,
 				B8A9C43A2BA07C8B0099A2A8 /* BookCollectionViewCell */,
 			);
@@ -556,8 +613,10 @@
 				B8A9C4362BA05D190099A2A8 /* Home.storyboard in Resources */,
 				B8A9C4692BA1BDB90099A2A8 /* Favorite.storyboard in Resources */,
 				B8A9C43E2BA07CC20099A2A8 /* BookCell.xib in Resources */,
+				B8698BDC2BA22C7A00CB56CE /* Search.storyboard in Resources */,
 				B8A9C4482BA092FC0099A2A8 /* BookDetail.storyboard in Resources */,
 				B8A9C41D2B9F88CE0099A2A8 /* MainTabBar.storyboard in Resources */,
+				B8698BE32BA2E03300CB56CE /* BookTableViewCell.xib in Resources */,
 				B87BAB1A2B9F2DE300EEEA9F /* Base in Resources */,
 				B87BAB152B9F2DE200EEEA9F /* Base in Resources */,
 				B8A9C47B2BA1DD720099A2A8 /* FavoriteView.xib in Resources */,
@@ -605,6 +664,15 @@
 				B87BAB3F2B9F301E00EEEA9F /* Networkable.swift in Sources */,
 				B87BAB5B2B9F754600EEEA9F /* UnitTestStubs.swift in Sources */,
 				B87BAB102B9F2DE200EEEA9F /* SceneDelegate.swift in Sources */,
+				B8698BDF2BA2D5F000CB56CE /* BPickerTextField.swift in Sources */,
+				B8698BD52BA22C7A00CB56CE /* SearchSUIP.swift in Sources */,
+				B8698BD62BA22C7A00CB56CE /* SearchViewController.swift in Sources */,
+				B8698BD72BA22C7A00CB56CE /* SearchPresenter.swift in Sources */,
+				B8698BE22BA2E03300CB56CE /* BookTableViewCell.swift in Sources */,
+				B8698BD82BA22C7A00CB56CE /* SearchInteractor.swift in Sources */,
+				B8698BD92BA22C7A00CB56CE /* SearchModels.swift in Sources */,
+				B8698BDA2BA22C7A00CB56CE /* SearchWorker.swift in Sources */,
+				B8698BDB2BA22C7A00CB56CE /* SearchRouter.swift in Sources */,
 				B87BAB4A2B9F32F600EEEA9F /* API.swift in Sources */,
 				B8A9C4492BA092FC0099A2A8 /* BookDetailSUIP.swift in Sources */,
 				B8A9C4792BA1DCF20099A2A8 /* FavoriteView.swift in Sources */,

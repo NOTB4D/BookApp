@@ -76,7 +76,7 @@ final class HomeViewController: UIViewController {
     }
 
     func fetcSortedList(_ sort: Home.Sort) {
-        interactor?.fechSortedList(sort)
+        interactor?.fetchSortedList(sort)
     }
 }
 
@@ -146,14 +146,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController {
     @objc func listenFunc(_ notification: Notification) {
         guard let id = notification.object as? String else { return }
-        interactor?.addOrDeleteBookToFavoriteBookList(with: id)
-    }
-}
-
-// MARK: BookDetailViewControllerDelegate
-
-extension HomeViewController: BookDetailViewControllerDelegate {
-    func didFavoriteStatusChanged(at id: String) {
         interactor?.addOrDeleteBookToFavoriteBookList(with: id)
     }
 }

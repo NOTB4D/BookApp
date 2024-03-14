@@ -1,5 +1,5 @@
 //
-//  FavoriteModels.swift
+//  SearchModels.swift
 //  BookApp
 //
 //  Created by Eser Kucuker on 13.03.2024.
@@ -8,9 +8,12 @@
 import Foundation
 
 // swiftlint:disable nesting
-enum Favorite {
-    enum FetchBooks {
-        struct Request {}
+enum Search {
+    enum FetchFilteredBooks {
+        struct Request {
+            let text: String
+            let categori: String
+        }
 
         struct Response {
             let books: [Book]
@@ -19,16 +22,27 @@ enum Favorite {
         struct ViewModel {
             let books: [Book]
         }
+
+        struct Book {
+            let id: String?
+            let image: String?
+            let bookName: String?
+            let authorName: String?
+            let publised: String?
+        }
     }
 
-    struct Book {
-        let id: String?
-        let artistName: String?
-        let image: String?
-        let isFavorite: Bool
+    enum FetchCategories {
+        struct Response {
+            let categories: [String]
+        }
+
+        struct ViewModel {
+            let categories: [String]
+        }
     }
 
-    enum FetchBook {
+    enum FetchBookDetail {
         struct Request {
             let bookId: String
         }
@@ -51,21 +65,9 @@ enum Favorite {
             let isFavorite: Bool
         }
     }
-
-    enum FetchFavoriteBook {
-        struct Request {}
-
-        struct Response {
-            let books: [Book]
-        }
-
-        struct ViewModel {
-            let books: [Book]
-        }
-    }
 }
 
-extension Favorite.FetchBook.ViewModel {
+extension Search.FetchBookDetail.ViewModel {
     func getBookDetailModel() -> BookDetail.fetchBook.Response {
         .init(id: id, artistName: artistName, name: name, releaseDate: releaseDate, image: image, isFavorite: isFavorite)
     }

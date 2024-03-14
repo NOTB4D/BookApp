@@ -11,4 +11,8 @@ public enum AppConstants {
     public enum Home {
         public static let paginationSize = 20
     }
+
+    public enum Search {
+        public static let paginationSize = 100
+    }
 }

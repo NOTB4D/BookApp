@@ -13,7 +13,7 @@ protocol HomeBusinessLogic: AnyObject {
     func fetchBook(request: Home.FetchBook.Request)
     func addOrDeleteBookToFavoriteBookList(with id: String)
     func fetcBooksNextPage()
-    func fechSortedList(_ sort: Home.Sort)
+    func fetchSortedList(_ sort: Home.Sort)
 }
 
 protocol HomeDataStore: AnyObject {}
@@ -55,7 +55,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                 case let .success(response):
                     self?.books = response.results
                     self?.currentPage += AppConstants.Home.paginationSize
-                    self?.fechSortedList(self?.sorted ?? .all)
+                    self?.fetchSortedList(self?.sorted ?? .all)
                 case let .failure(error):
                     print(error)
                 }
@@ -83,7 +83,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         )
     }
 
-    func fechSortedList(_ sort: Home.Sort) {
+    func fetchSortedList(_ sort: Home.Sort) {
         sorted = sort
         switch sorted {
         case .all:

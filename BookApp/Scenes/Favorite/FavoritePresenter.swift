@@ -54,8 +54,7 @@ final class FavoritePresenter: FavoritePresentationLogic {
                         image: $0.image,
                         isFavorite: $0.isFavorite
                     )
-                },
-                indexPath: response.indexPath
+                }
             )
         )
     }

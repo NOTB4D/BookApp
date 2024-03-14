@@ -21,6 +21,7 @@ final class FavoriteInteractor: FavoriteBusinessLogic, FavoriteDataStore {
     var worker: FavoriteWorkingLogic = FavoriteWorker()
 
     var books: [Books]?
+    var tempBooks: [Books]?
 
     func fetchBooks() {
         let model = LocalStorageManager.shared.fetchBooks()
@@ -33,6 +34,7 @@ final class FavoriteInteractor: FavoriteBusinessLogic, FavoriteDataStore {
                 artworkUrl100: $0.image
             )
         }
+        tempBooks = books
         presenter?.presentBooks(
             response: Favorite.FetchBooks.Response(
                 books: books?.compactMap {
@@ -86,44 +88,29 @@ final class FavoriteInteractor: FavoriteBusinessLogic, FavoriteDataStore {
             image: book.artworkUrl100
         )
         LocalStorageManager.shared.add(book: model)
+        tempBooks = books
         print("Favoriye Eklendi")
     }
 
     func deleteBookToFavoriteBookList(with id: String) {
         LocalStorageManager.shared.deleteBook(withId: id)
         print("Favoriden cıkartıldı")
+        tempBooks?.removeAll(where: { $0.id == id })
         refreshList(at: id)
     }
 
     func refreshList(at id: String) {
-        guard let index = findBookIndex(at: id) else { return }
         presenter?.presentFavoriteBook(
             response: Favorite.FetchFavoriteBook.Response(
-                books: books?.filter { $0.id != id }.compactMap {
+                books: tempBooks?.compactMap {
                     .init(
                         id: $0.id,
                         artistName: $0.name,
                         image: $0.artworkUrl100,
                         isFavorite: true
                     )
-                } ?? [],
-                indexPath: index
+                } ?? []
             )
         )
-    }
-
-    /// Finds the indexes of the updated item with the provided item ID.
-    /// - Parameter itemId: The ID of the item to find.
-    /// - Returns: An array of index paths for the updated item, or nil if not found.
-    func findBookIndex(at id: String) -> [IndexPath]? {
-        var itemIndexes: [IndexPath] = []
-        guard let itemIndex = books?.firstIndex(where: { $0.id == id }) else { return nil }
-        // Create an IndexPath for the item (in section 0) and append to itemIndexes
-        let indexPath = IndexPath(item: itemIndex, section: 0)
-        itemIndexes.append(indexPath)
-
-        // Return nil if no indexes were found, otherwise return the indexes
-        guard itemIndexes.count != 0 else { return nil }
-        return itemIndexes
     }
 }

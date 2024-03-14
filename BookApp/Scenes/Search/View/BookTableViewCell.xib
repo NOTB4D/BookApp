@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookTableViewCell" rowHeight="225" id="KGk-i7-Jjw" customClass="BookTableViewCell" customModule="BookApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="423" height="225"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wev-wS-Fqe">
+                        <rect key="frame" x="8" y="8" width="407" height="209"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vhf-8c-k0R">
+                                <rect key="frame" x="0.0" y="69.666666666666671" width="80" height="70.000000000000014"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="T0K-Te-4jl"/>
+                                    <constraint firstAttribute="height" constant="70" id="qVU-Y3-AdV"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-gr-nWX">
+                                <rect key="frame" x="88" y="75" width="319" height="59.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8p-yl-5F3">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="21"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VS-0F-WG8">
+                                        <rect key="frame" x="0.0" y="24" width="319" height="17.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8h-8S-50W">
+                                        <rect key="frame" x="0.0" y="44.333333333333329" width="319" height="15"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="wev-wS-Fqe" secondAttribute="bottom" constant="8" id="8FP-cr-Sce"/>
+                    <constraint firstAttribute="trailing" secondItem="wev-wS-Fqe" secondAttribute="trailing" constant="8" id="8OM-O3-n2Y"/>
+                    <constraint firstItem="wev-wS-Fqe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RRY-TG-6TP"/>
+                    <constraint firstItem="wev-wS-Fqe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="VfE-An-dgq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="aurthorNameLabel" destination="5VS-0F-WG8" id="cwq-8D-1iM"/>
+                <outlet property="bookImageView" destination="vhf-8c-k0R" id="EJf-4s-MNt"/>
+                <outlet property="bookNameLabel" destination="t8p-yl-5F3" id="Eqz-ky-ETh"/>
+                <outlet property="publishedDateLabel" destination="B8h-8S-50W" id="ebQ-bX-ojw"/>
+            </connections>
+            <point key="canvasLocation" x="208.3969465648855" y="51.056338028169016"/>
+        </tableViewCell>
+    </objects>
+</document>
