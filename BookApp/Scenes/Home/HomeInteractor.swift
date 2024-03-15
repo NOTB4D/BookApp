@@ -50,6 +50,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         Task {
             let result = await worker.fetchBooks(request: .init(page: page))
             DispatchQueue.main.async { [weak self] in
+                self?.presenter?.presentLoader(hide: true)
                 self?.isLoading = false
                 switch result {
                 case let .success(response):
@@ -58,6 +59,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                     self?.fetchSortedList(self?.sorted ?? .all)
                 case let .failure(error):
                     print(error)
+                    self?.presenter?.presentError(message: error.localizedDescription)
                 }
             }
         }

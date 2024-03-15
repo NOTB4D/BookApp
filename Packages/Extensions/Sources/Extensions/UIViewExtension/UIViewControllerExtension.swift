@@ -16,4 +16,13 @@ public extension UIViewController {
     }
 
     var preview: some View { Preview(viewController: self) }
+
+    /// Show or Hide Loader
+    func loaderHide(_ isHidden: Bool, with indicator: UIActivityIndicatorView) {
+        if isHidden {
+            indicator.stopAnimating()
+        } else {
+            indicator.startAnimating()
+        }
+    }
 }

@@ -12,6 +12,8 @@ protocol HomeDisplayLogic: AnyObject {
     func displayBooks(viewModel: Home.FetchBooks.ViewModel)
     func displayBook(viewModel: Home.FetchBook.ViewModel)
     func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel)
+    func displayError(message: String)
+    func displayLoader(hide: Bool)
 }
 
 final class HomeViewController: UIViewController {
@@ -51,7 +53,7 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loader.startAnimating()
+        displayLoader(hide: false)
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
             style: .done,
@@ -87,7 +89,6 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeDisplayLogic {
     func displayBooks(viewModel: Home.FetchBooks.ViewModel) {
-        loader.stopAnimating()
         books = viewModel.books
         collectionView.reloadData()
     }
@@ -99,6 +100,14 @@ extension HomeViewController: HomeDisplayLogic {
     func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel) {
         books = viewModel.books
         collectionView.reloadItems(at: viewModel.indexPath)
+    }
+
+    func displayError(message: String) {
+        showErrorMessage(message)
+    }
+
+    func displayLoader(hide: Bool) {
+        loaderHide(hide, with: loader)
     }
 }
 

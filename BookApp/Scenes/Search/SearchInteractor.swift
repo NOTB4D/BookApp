@@ -26,6 +26,7 @@ final class SearchInteractor: SearchBusinessLogic, SearchDataStore {
         Task {
             let result = await worker.fetchBooks(request: .init(page: AppConstants.Search.paginationSize))
             DispatchQueue.main.async { [weak self] in
+                self?.presenter?.presentLoader(hide: true)
                 switch result {
                 case let .success(response):
                     self?.books = response.results
@@ -33,12 +34,14 @@ final class SearchInteractor: SearchBusinessLogic, SearchDataStore {
                     self?.presentBookList(at: response.results)
                 case let .failure(error):
                     print(error)
+                    self?.presenter?.presentError(message: error.localizedDescription)
                 }
             }
         }
     }
 
     func presentCategories(with book: [Books]) {
+        categories = []
         book.forEach { book in
             guard let genres = book.genres else { return }
             let newGenres = genres.filter { genre in
