@@ -83,6 +83,9 @@
 		B8C458972BA331EB009614D8 /* GetBooksResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C458962BA331EB009614D8 /* GetBooksResponse.json */; };
 		B8C458992BA331F2009614D8 /* SearchViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C458982BA331F2009614D8 /* SearchViewControllerTest.swift */; };
 		B8C4589C2BA423F6009614D8 /* BAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4589B2BA423F6009614D8 /* BAlertButton.swift */; };
+		B8C4589F2BA42468009614D8 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4589E2BA42468009614D8 /* AlertViewController.swift */; };
+		B8C458A12BA424DB009614D8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C458A02BA424DB009614D8 /* UIViewControllerExtension.swift */; };
+		B8C458A32BA426A0009614D8 /* Alert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C458A22BA426A0009614D8 /* Alert.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +188,9 @@
 		B8C458962BA331EB009614D8 /* GetBooksResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetBooksResponse.json; sourceTree = "<group>"; };
 		B8C458982BA331F2009614D8 /* SearchViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTest.swift; sourceTree = "<group>"; };
 		B8C4589B2BA423F6009614D8 /* BAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAlertButton.swift; sourceTree = "<group>"; };
+		B8C4589E2BA42468009614D8 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		B8C458A02BA424DB009614D8 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		B8C458A22BA426A0009614D8 /* Alert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alert.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +506,7 @@
 		B8A9C4742BA1D0760099A2A8 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B8C4589D2BA4244E009614D8 /* Alert */,
 				B8C4589A2BA423D3009614D8 /* Buttons */,
 				B8698BDD2BA2D5D700CB56CE /* TextField */,
 				B8A9C4752BA1DCC50099A2A8 /* FavoriteView */,
@@ -563,6 +570,16 @@
 				B8C4589B2BA423F6009614D8 /* BAlertButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		B8C4589D2BA4244E009614D8 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B8C4589E2BA42468009614D8 /* AlertViewController.swift */,
+				B8C458A02BA424DB009614D8 /* UIViewControllerExtension.swift */,
+				B8C458A22BA426A0009614D8 /* Alert.storyboard */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -686,6 +703,7 @@
 				B87BAB1A2B9F2DE300EEEA9F /* Base in Resources */,
 				B87BAB152B9F2DE200EEEA9F /* Base in Resources */,
 				B8A9C47B2BA1DD720099A2A8 /* FavoriteView.xib in Resources */,
+				B8C458A32BA426A0009614D8 /* Alert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +774,8 @@
 				B87BAB4F2B9F341400EEEA9F /* RequestMethod.swift in Sources */,
 				B87BAB552B9F351D00EEEA9F /* Book.swift in Sources */,
 				B8A9C4392BA05D5D0099A2A8 /* GetBooksRequest.swift in Sources */,
+				B8C4589F2BA42468009614D8 /* AlertViewController.swift in Sources */,
+				B8C458A12BA424DB009614D8 /* UIViewControllerExtension.swift in Sources */,
 				B8A9C4582BA100450099A2A8 /* Book+CoreDataClass.swift in Sources */,
 				B8A9C42F2BA05D190099A2A8 /* HomeSUIP.swift in Sources */,
 				B8A9C4302BA05D190099A2A8 /* HomeViewController.swift in Sources */,
