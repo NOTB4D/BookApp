@@ -18,6 +18,7 @@ final class SearchViewController: UIViewController {
     @IBOutlet var categoriesPicker: BPickerTextField!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var loader: UIActivityIndicatorView!
 
     var interactor: SearchBusinessLogic?
     var router: (SearchRoutingLogic & SearchDataPassing)?
@@ -53,6 +54,7 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader.startAnimating()
         title = "Arama"
         tableView.register(BookTableViewCell.self, bundle: Bundle.main)
         categoriesPicker.pickerDelegate = self
@@ -88,6 +90,7 @@ extension SearchViewController: SearchDisplayLogic {
     func displayBookList(viewModel: Search.FetchFilteredBooks.ViewModel) {
         books = viewModel.books
         tableView.reloadData()
+        loader.stopAnimating()
     }
 
     func displayBook(viewModel: Search.FetchBookDetail.ViewModel) {

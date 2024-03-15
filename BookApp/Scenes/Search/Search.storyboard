@@ -40,6 +40,9 @@
                                     <outlet property="delegate" destination="nxe-uw-h5I" id="CJ0-PP-gzC"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lpW-ww-XQc">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="acR-sl-ate"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -52,6 +55,8 @@
                             <constraint firstItem="0TG-d2-YHA" firstAttribute="leading" secondItem="acR-sl-ate" secondAttribute="leading" id="c0H-dj-LQ7"/>
                             <constraint firstItem="Sm8-8S-i3e" firstAttribute="top" secondItem="acR-sl-ate" secondAttribute="top" constant="8" id="g4o-BH-MsD"/>
                             <constraint firstItem="0TG-d2-YHA" firstAttribute="top" secondItem="vrg-1I-OjH" secondAttribute="bottom" constant="8" id="gbE-hY-VfG"/>
+                            <constraint firstItem="lpW-ww-XQc" firstAttribute="centerX" secondItem="chM-je-gA4" secondAttribute="centerX" id="ild-S8-Xz9"/>
+                            <constraint firstItem="lpW-ww-XQc" firstAttribute="centerY" secondItem="chM-je-gA4" secondAttribute="centerY" id="jov-UG-FWb"/>
                             <constraint firstItem="acR-sl-ate" firstAttribute="trailing" secondItem="Sm8-8S-i3e" secondAttribute="trailing" constant="12" id="xrd-5r-Ujp"/>
                             <constraint firstItem="vrg-1I-OjH" firstAttribute="leading" secondItem="acR-sl-ate" secondAttribute="leading" constant="12" id="zHf-wa-RCA"/>
                         </constraints>
@@ -59,6 +64,7 @@
                     <navigationItem key="navigationItem" id="2N6-zN-ELX"/>
                     <connections>
                         <outlet property="categoriesPicker" destination="vrg-1I-OjH" id="O4T-Nv-mtJ"/>
+                        <outlet property="loader" destination="lpW-ww-XQc" id="50g-V6-RZD"/>
                         <outlet property="searchBar" destination="Sm8-8S-i3e" id="h1W-CZ-0ZY"/>
                         <outlet property="tableView" destination="0TG-d2-YHA" id="f4t-Er-3xB"/>
                     </connections>

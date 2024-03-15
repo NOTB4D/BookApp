@@ -16,6 +16,7 @@ protocol HomeDisplayLogic: AnyObject {
 
 final class HomeViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var loader: UIActivityIndicatorView!
 
     var interactor: HomeBusinessLogic?
     var router: (HomeRoutingLogic & HomeDataPassing)?
@@ -50,6 +51,7 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loader.startAnimating()
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
             style: .done,
@@ -85,6 +87,7 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeDisplayLogic {
     func displayBooks(viewModel: Home.FetchBooks.ViewModel) {
+        loader.stopAnimating()
         books = viewModel.books
         collectionView.reloadData()
     }

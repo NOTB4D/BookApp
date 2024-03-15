@@ -42,6 +42,9 @@
                                     <outlet property="delegate" destination="nxe-uw-h5I" id="121-LJ-6Zo"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="zMf-bv-2KB">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="acR-sl-ate"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,12 +52,15 @@
                             <constraint firstItem="mJd-MR-KmJ" firstAttribute="top" secondItem="acR-sl-ate" secondAttribute="top" id="4Rd-gK-2sq"/>
                             <constraint firstItem="acR-sl-ate" firstAttribute="trailing" secondItem="mJd-MR-KmJ" secondAttribute="trailing" id="4c3-mz-fi7"/>
                             <constraint firstItem="acR-sl-ate" firstAttribute="bottom" secondItem="mJd-MR-KmJ" secondAttribute="bottom" id="B7D-9z-BNc"/>
+                            <constraint firstItem="zMf-bv-2KB" firstAttribute="centerY" secondItem="chM-je-gA4" secondAttribute="centerY" id="Hm5-TJ-od2"/>
+                            <constraint firstItem="zMf-bv-2KB" firstAttribute="centerX" secondItem="chM-je-gA4" secondAttribute="centerX" id="J7t-SO-Ien"/>
                             <constraint firstItem="mJd-MR-KmJ" firstAttribute="leading" secondItem="acR-sl-ate" secondAttribute="leading" id="qWQ-T1-W3s"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ag8-Gg-zcL"/>
                     <connections>
                         <outlet property="collectionView" destination="mJd-MR-KmJ" id="7A4-kx-8ID"/>
+                        <outlet property="loader" destination="zMf-bv-2KB" id="IC6-PU-DnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZo-gs-e4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
