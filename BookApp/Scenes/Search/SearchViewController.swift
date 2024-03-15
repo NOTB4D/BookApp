@@ -12,6 +12,8 @@ protocol SearchDisplayLogic: AnyObject {
     func displayCategories(viewModel: Search.FetchCategories.ViewModel)
     func displayBookList(viewModel: Search.FetchFilteredBooks.ViewModel)
     func displayBook(viewModel: Search.FetchBookDetail.ViewModel)
+    func displayError(message: String)
+    func displayLoader(hide: Bool)
 }
 
 final class SearchViewController: UIViewController {
@@ -54,16 +56,20 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loader.startAnimating()
         title = "Arama"
         tableView.register(BookTableViewCell.self, bundle: Bundle.main)
         categoriesPicker.pickerDelegate = self
-        categoriesPicker.isUserInteractionEnabled = false
         categoriesPicker.setRightIcon()
+        tableView.keyboardDismissMode = .onDrag
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        displayLoader(hide: false)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        categoriesPicker.isUserInteractionEnabled = false
         interactor?.fetchBookList()
     }
 
@@ -74,6 +80,10 @@ final class SearchViewController: UIViewController {
                 categori: (categoriesPicker.text).stringValue
             )
         )
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(false)
     }
 }
 
@@ -90,11 +100,18 @@ extension SearchViewController: SearchDisplayLogic {
     func displayBookList(viewModel: Search.FetchFilteredBooks.ViewModel) {
         books = viewModel.books
         tableView.reloadData()
-        loader.stopAnimating()
     }
 
     func displayBook(viewModel: Search.FetchBookDetail.ViewModel) {
         router?.routeToBookDetail(viewModel: viewModel)
+    }
+
+    func displayError(message: String) {
+        showErrorMessage(message)
+    }
+
+    func displayLoader(hide: Bool) {
+        loaderHide(hide, with: loader)
     }
 }
 
