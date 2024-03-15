@@ -12,6 +12,8 @@ protocol HomePresentationLogic: AnyObject {
     func presentBooks(response: Home.FetchBooks.Response)
     func presentBook(response: Home.FetchBook.Response)
     func presentFavoriteBook(response: Home.FetchFavoriteBook.Response)
+    func presentError(message: String)
+    func presentLoader(hide: Bool)
 }
 
 final class HomePresenter: HomePresentationLogic {
@@ -59,5 +61,13 @@ final class HomePresenter: HomePresentationLogic {
                 indexPath: response.indexPath
             )
         )
+    }
+
+    func presentError(message: String) {
+        viewController?.displayError(message: message)
+    }
+
+    func presentLoader(hide: Bool) {
+        viewController?.displayLoader(hide: hide)
     }
 }
