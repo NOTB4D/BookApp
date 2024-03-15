@@ -11,6 +11,8 @@ protocol SearchPresentationLogic: AnyObject {
     func presentBookList(response: Search.FetchFilteredBooks.Response)
     func presentCategories(response: Search.FetchCategories.Response)
     func presentBook(response: Search.FetchBookDetail.Response)
+    func presentError(message: String)
+    func presentLoader(hide: Bool)
 }
 
 final class SearchPresenter: SearchPresentationLogic {
@@ -39,5 +41,13 @@ final class SearchPresenter: SearchPresentationLogic {
                 isFavorite: response.isFavorite
             )
         )
+    }
+
+    func presentError(message: String) {
+        viewController?.displayError(message: message)
+    }
+
+    func presentLoader(hide: Bool) {
+        viewController?.displayLoader(hide: hide)
     }
 }
