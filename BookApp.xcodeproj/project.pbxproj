@@ -82,6 +82,7 @@
 		B8C458952BA331E5009614D8 /* HomeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C458942BA331E5009614D8 /* HomeViewControllerTest.swift */; };
 		B8C458972BA331EB009614D8 /* GetBooksResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B8C458962BA331EB009614D8 /* GetBooksResponse.json */; };
 		B8C458992BA331F2009614D8 /* SearchViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C458982BA331F2009614D8 /* SearchViewControllerTest.swift */; };
+		B8C4589C2BA423F6009614D8 /* BAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4589B2BA423F6009614D8 /* BAlertButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,7 @@
 		B8C458942BA331E5009614D8 /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
 		B8C458962BA331EB009614D8 /* GetBooksResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetBooksResponse.json; sourceTree = "<group>"; };
 		B8C458982BA331F2009614D8 /* SearchViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTest.swift; sourceTree = "<group>"; };
+		B8C4589B2BA423F6009614D8 /* BAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAlertButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +500,7 @@
 		B8A9C4742BA1D0760099A2A8 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B8C4589A2BA423D3009614D8 /* Buttons */,
 				B8698BDD2BA2D5D700CB56CE /* TextField */,
 				B8A9C4752BA1DCC50099A2A8 /* FavoriteView */,
 				B8A9C43A2BA07C8B0099A2A8 /* BookCollectionViewCell */,
@@ -552,6 +555,14 @@
 				B8C458942BA331E5009614D8 /* HomeViewControllerTest.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B8C4589A2BA423D3009614D8 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B8C4589B2BA423F6009614D8 /* BAlertButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -752,6 +763,7 @@
 				B8A9C4322BA05D190099A2A8 /* HomeInteractor.swift in Sources */,
 				B8A9C4332BA05D190099A2A8 /* HomeModels.swift in Sources */,
 				B8A9C4342BA05D190099A2A8 /* HomeWorker.swift in Sources */,
+				B8C4589C2BA423F6009614D8 /* BAlertButton.swift in Sources */,
 				B8A9C4352BA05D190099A2A8 /* HomeRouter.swift in Sources */,
 				B87BAB422B9F327B00EEEA9F /* Response.swift in Sources */,
 				B8A9C43D2BA07CC20099A2A8 /* BookCell.swift in Sources */,
