@@ -16,7 +16,9 @@ protocol HomeBusinessLogic: AnyObject {
     func fetchSortedList(_ sort: Home.Sort)
 }
 
-protocol HomeDataStore: AnyObject {}
+protocol HomeDataStore: AnyObject {
+    var sorted: Home.Sort { get set }
+}
 
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
@@ -24,6 +26,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var isLoading: Bool = false
     var currentPage: Int = 0
     var books: [Books]?
+    var favoritedBooks: [Book]?
     var sorted: Home.Sort = .all
 
     func fetchBooks() {
@@ -97,8 +100,8 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
             books = books?.sorted { $0.releaseDate! < $1.releaseDate! }
             presentBookList(with: books)
         case .favorites:
-            let tempData = LocalStorageManager.shared.fetchBooks()
-            presentBookList(with: tempData?.map {
+            favoritedBooks = LocalStorageManager.shared.fetchBooks()
+            presentBookList(with: favoritedBooks?.map {
                 Books(
                     artistName: $0.authorName,
                     id: $0.id,
@@ -111,12 +114,13 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     }
 
     func addOrDeleteBookToFavoriteBookList(with id: String) {
+        guard let index = findBookIndex(at: id) else { return }
         if isBookfavorite(with: id) {
             deleteBookToFavorite(with: id)
-            refreshList(at: id, isFavorite: true)
+            refreshList(at: index, isFavorite: true)
         } else {
             addBookToFavorite(with: id)
-            refreshList(at: id)
+            refreshList(at: index)
         }
     }
 
@@ -143,8 +147,8 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         print("Favoriden cıkartıldı")
     }
 
-    func refreshList(at id: String, isFavorite: Bool = false) {
-        guard let index = findBookIndex(at: id) else { return }
+    func refreshList(at indexPath: [IndexPath], isFavorite: Bool = false) {
+        let books = getrefreshedModel()
         presenter?.presentFavoriteBook(
             response: Home.FetchFavoriteBook.Response(
                 books: books?.compactMap {
@@ -155,7 +159,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
                         isFavorite: isBookfavorite(with: ($0.id).stringValue)
                     )
                 } ?? [],
-                indexPath: index
+                indexPath: indexPath
             )
         )
     }
@@ -165,7 +169,13 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     /// - Returns: An array of index paths for the updated item, or nil if not found.
     func findBookIndex(at id: String) -> [IndexPath]? {
         var itemIndexes: [IndexPath] = []
-        guard let itemIndex = books?.firstIndex(where: { $0.id == id }) else { return nil }
+        var itemIndex: Int?
+        if sorted == .favorites {
+            itemIndex = favoritedBooks?.firstIndex(where: { $0.id == id })
+        } else {
+            itemIndex = books?.firstIndex(where: { $0.id == id })
+        }
+        guard let itemIndex else { return nil }
         // Create an IndexPath for the item (in section 0) and append to itemIndexes
         let indexPath = IndexPath(item: itemIndex, section: 0)
         itemIndexes.append(indexPath)
@@ -173,5 +183,19 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         // Return nil if no indexes were found, otherwise return the indexes
         guard itemIndexes.count != 0 else { return nil }
         return itemIndexes
+    }
+
+    func getrefreshedModel() -> [Books]? {
+        guard sorted == .favorites else { return books }
+        let books = LocalStorageManager.shared.fetchBooks()?.compactMap {
+            Books(
+                artistName: $0.authorName,
+                id: $0.id,
+                name: $0.name,
+                releaseDate: $0.publishDate,
+                artworkUrl100: $0.image
+            )
+        }
+        return books
     }
 }
