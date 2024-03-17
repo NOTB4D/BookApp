@@ -99,7 +99,11 @@ extension HomeViewController: HomeDisplayLogic {
 
     func displayFavoriteBook(viewModel: Home.FetchFavoriteBook.ViewModel) {
         books = viewModel.books
-        collectionView.reloadItems(at: viewModel.indexPath)
+        if router?.dataStore?.sorted == .favorites {
+            collectionView.reloadData()
+        } else {
+            collectionView.reloadItems(at: viewModel.indexPath)
+        }
     }
 
     func displayError(message: String) {
